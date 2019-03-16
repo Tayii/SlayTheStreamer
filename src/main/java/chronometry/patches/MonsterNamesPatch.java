@@ -130,7 +130,9 @@ public class MonsterNamesPatch {
     public static class storeTwitchNames {
     	@SpireInsertPatch( rloc = 33, localvars={"user"} )
         public static void Insert(Twirk self, String line, TwitchUser user) {
-    		SlayTheStreamer.displayNames.put(user.getUserName(), user.getDisplayName());
+			if (user.getDisplayName().matches("\\w+")) {
+				SlayTheStreamer.displayNames.put(user.getUserName(), user.getDisplayName());
+			}
         }
     }
 
