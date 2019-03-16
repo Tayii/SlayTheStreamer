@@ -1,0 +1,10 @@
+{
+  "AttackEffect": "наносит {num}{mul} урона",
+  "BuffStrengthEffect": "получает {num} силы",
+  "DebuffCardDiscardEffect": "добавляет {num} {effect} карт в стопку сброса",
+  "DebuffFrailEffect": "ослабляет броню на {num} ходов",
+  "DebuffVulnerableEffect": "накладывает уязвимость на {num} ходов",
+  "DebuffWeakEffect": "ослабляет атаки на {num} ходов",
+  "DefendEffect": "получает {num} блока",
+  "DefendOtherEffect": "дает {num} блока случайному союзнику"
+}

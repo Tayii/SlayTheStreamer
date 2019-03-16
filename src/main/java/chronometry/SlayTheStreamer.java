@@ -1,10 +1,14 @@
 package chronometry;
 
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.*;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -25,13 +29,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import de.robojumper.ststwitch.*;
 
+import com.google.gson.Gson;
+
     // TODO:
     //   Active monsters could have a listener that lets the user talk on screen
     //crashes if you try to restart the run
 
 @SpireInitializer
 public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubscriber,
-        PostDungeonInitializeSubscriber, PostEnergyRechargeSubscriber, OnStartBattleSubscriber {
+        PostDungeonInitializeSubscriber, PostEnergyRechargeSubscriber, OnStartBattleSubscriber, EditStringsSubscriber {
 
     public static final Logger logger = LogManager.getLogger(SlayTheStreamer.class.getName());
 
@@ -49,6 +55,8 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
     public static Map<String, Integer> usedNames = new HashMap(); // displayname, # voted
     public static Map<String, String> displayNames = new HashMap(); // username, displayname
     public static Map<String, Integer> votedTimes = new HashMap();  // displayname, voted times
+    public static HashMap<String, HashMap<String, String>> localizedMonsterMoves;
+    public static HashMap<String, String> localizedChatEffects;
 
     @SuppressWarnings("deprecation")
     public SlayTheStreamer() {
@@ -169,7 +177,7 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
                 if (m.isDying || !AbstractMonsterPatch.is_player.get(m)) { return; }
                 ArrayList<IntentData> moves = AbstractMonsterPatch.intent_moves.get(m);
                 if (moves != null && moves.size() > 1) {
-                    m.setMove((byte)99, AbstractMonster.Intent.UNKNOWN);
+                    m.setMove((byte)-1, AbstractMonster.Intent.UNKNOWN);
                     AbstractMonsterPatch.had_turn.set(m, false);
                     for (IntentData data: moves) {
                         data.refreshCooldown();
@@ -178,5 +186,33 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
                 }
             }
         }
+    }
+
+    public void receiveEditStrings() {
+        String path = "localization/";
+        if (Settings.language.toString().equals("RUS")) {
+            path = path.concat(Settings.language.toString().toLowerCase());
+        }
+        else {
+            path = path.concat("eng");
+        }
+
+        Type tokenType = new TypeToken<HashMap<String, HashMap<String, String>>>() {}.getType();
+        SlayTheStreamer.localizedMonsterMoves = new HashMap<>(
+                new Gson().fromJson(
+                        Gdx.files.internal(path.concat("/MonsterMoveNames.json")).readString(String.valueOf(StandardCharsets.UTF_8)),
+                        tokenType
+                )
+        );
+        logger.info(SlayTheStreamer.localizedMonsterMoves.get("AcidSlime_M").get("NORMAL_TACKLE"));
+
+        tokenType = new TypeToken<HashMap<String, String>>() {}.getType();
+        SlayTheStreamer.localizedChatEffects = new HashMap<>(
+                new Gson().fromJson(
+                        Gdx.files.internal(path.concat("/ChatEffectStrings.json")).readString(String.valueOf(StandardCharsets.UTF_8)),
+                        tokenType
+                )
+        );
+        logger.info(SlayTheStreamer.localizedChatEffects.get("AttackEffect"));
     }
 }
