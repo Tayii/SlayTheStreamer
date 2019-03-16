@@ -16,6 +16,11 @@
   "JawWorm": {
     "CHOMP": "Chomp"
   },
+  "Looter": {
+    "SMOKE_BOMB": "Smoke Bomb",
+    "ESCAPE": "Escape",
+    "UNIQUE_1": "escapes the battle"
+  },
   "LouseDefensive": {
     "BITE": "Bite"
   },

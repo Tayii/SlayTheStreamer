@@ -16,6 +16,11 @@
   "JawWorm": {
     "CHOMP": "Погрызть"
   },
+  "Looter": {
+    "SMOKE_BOMB": "Дымовая бомба",
+    "ESCAPE": "Побег",
+    "UNIQUE_1": "сбегает с боя"
+  },
   "LouseDefensive": {
     "BITE": "Укус"
   },
