@@ -1,50 +1,26 @@
 package chronometry.patches;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.lang.reflect.*;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
-import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 
 import com.gikk.twirk.*;
-import com.gikk.twirk.events.*;
 import com.gikk.twirk.types.users.*;
-import com.gikk.twirk.types.twitchMessage.*;
 
-import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.relics.*;
-import com.megacrit.cardcrawl.blights.*;
-import com.megacrit.cardcrawl.screens.mainMenu.*;
-import com.badlogic.gdx.*;
 import com.megacrit.cardcrawl.dungeons.*;
-import com.badlogic.gdx.math.*;
-import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.helpers.controller.*;
 import com.megacrit.cardcrawl.core.*;
-import com.megacrit.cardcrawl.rooms.*;
-import com.badlogic.gdx.graphics.g2d.*;
-import com.megacrit.cardcrawl.vfx.*;
 import com.badlogic.gdx.graphics.*;
 import com.megacrit.cardcrawl.helpers.*;
-import com.megacrit.cardcrawl.unlock.*;
-import com.megacrit.cardcrawl.screens.*;
 import com.megacrit.cardcrawl.monsters.*;
 import java.util.*;
-import java.util.stream.*;
-import java.util.function.*;
-import org.apache.logging.log4j.*;
 import de.robojumper.ststwitch.*;
-import de.robojumper.ststwitch.TwitchConnection;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import chronometry.SlayTheStreamer;
 import basemod.ReflectionHacks;
-import chronometry.BossChoicePatch;
+import chronometry.AbstractMonsterMoves;
 
 import static com.badlogic.gdx.math.MathUtils.random;
 
@@ -154,7 +130,7 @@ public class MonsterNamesPatch {
     public static class storeTwitchNames {
     	@SpireInsertPatch( rloc = 33, localvars={"user"} )
         public static void Insert(Twirk self, String line, TwitchUser user) {
-        	SlayTheStreamer.displayNames.put(user.getUserName(), user.getDisplayName());
+    		SlayTheStreamer.displayNames.put(user.getUserName(), user.getDisplayName());
         }
     }
 

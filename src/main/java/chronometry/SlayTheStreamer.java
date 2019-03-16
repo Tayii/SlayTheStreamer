@@ -1,21 +1,12 @@
 package chronometry;
 
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Properties;
 import java.util.Iterator;
 import java.util.*;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
-import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 
 import basemod.BaseMod;
@@ -26,10 +17,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 
 import chronometry.patches.*;
-import chronometry.ConfigPanel;
-import chronometry.BossSelectScreen;
 import chronometry.patches.NoSkipBossRelicPatch;
-import chronometry.MonsterMessageRepeater;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,12 +28,13 @@ import de.robojumper.ststwitch.*;
     //crashes if you try to restart the run
 
 @SpireInitializer
-public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubscriber, PostDungeonInitializeSubscriber {
+public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubscriber,
+        PostDungeonInitializeSubscriber {
 
     public static final Logger logger = LogManager.getLogger(SlayTheStreamer.class.getName());
 
     private static final String MOD_NAME = "Slay the Streamer";
-    private static final String AUTHOR = "Chronometrics";
+    private static final String AUTHOR = "Tayi_Saito";
     private static final String DESCRIPTION = "Chat vs Streamer in the ultimate showdown! The streamer begins with a winnable deck, and chat tries to find ways to ruin it by voting and influencing the run throughout the stream. Requires Twitch Integration to work.";
 
     public static SpireConfig config;
