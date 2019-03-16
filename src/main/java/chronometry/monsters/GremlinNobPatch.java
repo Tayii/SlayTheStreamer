@@ -31,7 +31,8 @@ public class GremlinNobPatch {
             IntentData move2 = new IntentData(
                     __instance.getClass(),
                     "SKULL_BASH",
-                    Intent.ATTACK_DEBUFF
+                    Intent.ATTACK_DEBUFF,
+                    __instance.MOVES[0]
             );
             move2.add_effect(new AttackEffect(__instance.damage.get(1)));
             move2.add_effect(new DebuffVulnerableEffect(2));
@@ -41,7 +42,6 @@ public class GremlinNobPatch {
                     __instance.getClass(),
                     "BELLOW",
                     Intent.BUFF,
-                    __instance.MOVES[0],
                     -1
             );
             int strength_gain = 2;
