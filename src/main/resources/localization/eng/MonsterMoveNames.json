@@ -8,7 +8,7 @@
   },
   "Cultist": {
     "DARK_STRIKE": "Dark Strike",
-    "UNIQUE_1": "gains {num} Strength every turn"
+    "UNIQUE_1": "gains +{num} Strength every turn"
   },
   "FungiBeast": {
     "BITE": "Bite"
@@ -35,6 +35,12 @@
   "Sentry": {
     "BOLT": "Bolt",
     "BEAM": "Beam"
+  },
+  "SlaverBlue": {
+    "STAB": "Stab"
+  },
+  "SlaverRed": {
+    "STAB": "Stab"
   },
   "SpikeSlime_M": {
     "FLAME_TACKLE": "Flame Tackle"

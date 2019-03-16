@@ -8,7 +8,7 @@
   },
   "Cultist": {
     "DARK_STRIKE": "Удар тьмы",
-    "UNIQUE_1": "получает {num} Силы каждый ход"
+    "UNIQUE_1": "получает +{num} Силы каждый ход"
   },
   "FungiBeast": {
     "BITE": "Укус"
@@ -35,6 +35,12 @@
   "Sentry": {
     "BOLT": "Разряд",
     "BEAM": "Луч"
+  },
+  "SlaverBlue": {
+    "STAB": "Удар"
+  },
+  "SlaverRed": {
+    "STAB": "Удар"
   },
   "SpikeSlime_M": {
     "FLAME_TACKLE": "Плевок огнем"
