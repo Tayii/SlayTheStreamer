@@ -1,4 +1,7 @@
 {
+  "AcidSlime_L": {
+    "NORMAL_TACKLE": "Плевок"
+  },
   "AcidSlime_M": {
     "NORMAL_TACKLE": "Плевок"
   },
@@ -41,6 +44,9 @@
   },
   "SlaverRed": {
     "STAB": "Удар"
+  },
+  "SpikeSlime_L": {
+    "FLAME_TACKLE": "Плевок огнем"
   },
   "SpikeSlime_M": {
     "FLAME_TACKLE": "Плевок огнем"

@@ -1,4 +1,7 @@
 {
+  "AcidSlime_L": {
+    "NORMAL_TACKLE": "Tackle"
+  },
   "AcidSlime_M": {
     "NORMAL_TACKLE": "Tackle"
   },
@@ -41,6 +44,9 @@
   },
   "SlaverRed": {
     "STAB": "Stab"
+  },
+  "SpikeSlime_L": {
+    "FLAME_TACKLE": "Flame Tackle"
   },
   "SpikeSlime_M": {
     "FLAME_TACKLE": "Flame Tackle"
