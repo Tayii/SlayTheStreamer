@@ -6,6 +6,10 @@
     "TACKLE": "Tackle",
     "DEBUFF": "Lick"
   },
+  "Cultist": {
+    "DARK_STRIKE": "Dark Strike",
+    "UNIQUE_1": "gains {num} Strength every turn"
+  },
   "FungiBeast": {
     "BITE": "Bite"
   },

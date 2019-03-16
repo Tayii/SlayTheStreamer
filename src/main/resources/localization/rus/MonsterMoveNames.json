@@ -6,6 +6,10 @@
     "TACKLE": "Плевок",
     "DEBUFF": "Облизнуть"
   },
+  "Cultist": {
+    "DARK_STRIKE": "Удар тьмы",
+    "UNIQUE_1": "получает {num} Силы каждый ход"
+  },
   "FungiBeast": {
     "BITE": "Укус"
   },
