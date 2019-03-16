@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.animations.*;
 import de.robojumper.ststwitch.TwitchConnection;
 import de.robojumper.ststwitch.TwitchPanel;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -23,10 +24,22 @@ public class MonsterMessageRepeater {
 			sb.append(monster.name.split(" ")[0]);
 			sb.append(SlayTheStreamer.localizedChatEffects.get("TwitchNotification"));
 			sb.append(":");
+			int phase_num = AbstractMonsterPatch.current_phase.get(monster);
+			int amount = 0;
+			IntentData last_data = null;
 			for (IntentData data: AbstractMonsterPatch.intent_moves.get(monster)) {
-				if (data.cooldown == 0) {
+				if (data.cooldown == 0 && data.isAvailable(phase_num)) {
 					sb.append(data.toString());
+					last_data = data;
+					amount++;
 				}
+			}
+			if (amount == 0) {
+				return;
+			}
+			else if (amount == 1) {
+				commandMonster(monster, last_data);
+				return;
 			}
 
 			try {
@@ -55,13 +68,10 @@ public class MonsterMessageRepeater {
 							if (msg.startsWith("#") && !AbstractMonsterPatch.had_turn.get(m)) {
 								msg = msg.substring(1);
 								ArrayList<IntentData> moves = AbstractMonsterPatch.intent_moves.get(m);
+								int phase_num = AbstractMonsterPatch.current_phase.get(m);
 								for (IntentData data: moves) {
-									if (data.move_name.equals(msg) && data.cooldown == 0) {
-										m.setMove(data.move_name, data.intent_code, data.intent_type,
-												data.getBaseDamage(), data.getMultiplier(), data.isMulti());
-										m.createIntent();
-										data.setCooldown();
-										AbstractMonsterPatch.had_turn.set(m, true);
+									if (data.move_name.equals(msg) && data.isAvailable(phase_num) && data.cooldown == 0) {
+										commandMonster(m, data);
 										break;
 									}
 								}
@@ -78,6 +88,14 @@ public class MonsterMessageRepeater {
 				}
 			}
 		}
+	}
+
+	static void commandMonster(AbstractMonster m, IntentData data) {
+		m.setMove(data.move_name, data.intent_code, data.intent_type,
+				data.getBaseDamage(), data.getMultiplier(), data.isMulti());
+		m.createIntent();
+		data.setCooldown();
+		AbstractMonsterPatch.had_turn.set(m, true);
 	}
 
 }

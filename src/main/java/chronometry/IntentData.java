@@ -14,6 +14,7 @@ public class IntentData {
     public ArrayList<MoveEffect> effects;
     public int cooldown = 0;
     public int max_cooldown = 0;
+    public ArrayList<Integer> phase_availability;
 
     public IntentData(Class<? extends AbstractMonster> monsterClass, String intentCode, Intent intentType) {
         this(monsterClass, intentCode, intentType, 0);
@@ -38,11 +39,13 @@ public class IntentData {
         this.move_name = move_name;
         this.max_cooldown = max_cooldown;
         this.effects = new ArrayList<>();
+        this.phase_availability = new ArrayList<>();
     }
 
     public void add_effect(MoveEffect effect) {
         this.effects.add(effect);
     }
+    public void add_phase(int phase_num) { this.phase_availability.add(phase_num); }
 
     public int getBaseDamage() {
         for (MoveEffect move: this.effects) {
@@ -74,6 +77,10 @@ public class IntentData {
         if (this.cooldown > 0) {
             this.cooldown -= 1;
         }
+    }
+
+    public boolean isAvailable(int phase_num) {
+        return this.phase_availability.size() == 0 || this.phase_availability.contains(phase_num);
     }
 
     @Override
