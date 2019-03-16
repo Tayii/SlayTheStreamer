@@ -210,8 +210,8 @@ public class StartGamePatch {
                 }
 
                 float y = (Settings.OPTION_Y - 500.0F * Settings.scale);
-      			y += i * -82.0F;
-      			y -= 4 * -82.0F;
+      			y += i * -82.0F * Settings.scale;
+      			y -= 4 * -82.0F * Settings.scale;
       			// y += 18.5F;
 
                 FontHelper.renderFontRightAligned(sb, FontHelper.panelEndTurnFont, s, 160.0F * Settings.scale, y, Color.WHITE.cpy());
