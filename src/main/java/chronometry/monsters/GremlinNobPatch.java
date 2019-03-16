@@ -28,7 +28,7 @@ public class GremlinNobPatch {
             );
             move1.add_effect(new AttackEffect(
                     __instance.damage.get(0),
-                    0
+                    1
             ));
             moves.add(move1);
 
@@ -39,7 +39,7 @@ public class GremlinNobPatch {
             );
             move2.add_effect(new AttackEffect(
                     __instance.damage.get(1),
-                    0
+                    1
             ));
             move2.add_effect(new DebuffVulnerableEffect(
                     2
