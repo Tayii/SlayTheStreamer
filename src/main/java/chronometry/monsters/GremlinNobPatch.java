@@ -50,9 +50,8 @@ public class GremlinNobPatch {
             }
             move3.add_effect(new UniqueEffect(
                     __instance.getClass(),
-                    "UNIQUE",
-                    strength_gain,
-                    0
+                    "UNIQUE_1",
+                    strength_gain
             ));
             moves.add(move3);
 

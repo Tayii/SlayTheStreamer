@@ -11,7 +11,7 @@
   "GremlinNob": {
     "BULL_RUSH": "Bull Rush",
     "SKULL_BASH": "Skull Bash",
-    "UNIQUE": "gains {num} Strength whenever Skill card is played"
+    "UNIQUE_1": "gains {num} Strength whenever Skill card is played"
   },
   "JawWorm": {
     "CHOMP": "Chomp"
