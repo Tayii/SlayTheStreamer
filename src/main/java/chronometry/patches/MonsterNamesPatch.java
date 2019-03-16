@@ -20,7 +20,6 @@ import de.robojumper.ststwitch.*;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import chronometry.SlayTheStreamer;
 import basemod.ReflectionHacks;
-import chronometry.AbstractMonsterMoves;
 
 import static com.badlogic.gdx.math.MathUtils.random;
 
