@@ -22,6 +22,7 @@ public class MonsterMessageRepeater {
 			StringBuilder sb = new StringBuilder();
 			sb.append("@");
 			sb.append(monster.name.split(" ")[0]);
+			sb.append(" ");
 			sb.append(SlayTheStreamer.localizedChatEffects.get("TwitchNotification"));
 			sb.append(":");
 			int phase_num = AbstractMonsterPatch.current_phase.get(monster);
