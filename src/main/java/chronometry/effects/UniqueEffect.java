@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class UniqueEffect extends MoveEffect {
     public UniqueEffect(Class<? extends AbstractMonster> monsterClass, String effectString, int number, int multiplier) {
-        this.effect_string = SlayTheStreamer.localizedMonsterMoves.get(monsterClass.toString()).get(effectString);
+        this.effect_string = SlayTheStreamer.localizedMonsterMoves.get(monsterClass.getSimpleName()).get(effectString);
         this.number = number;
         this.multiplier = multiplier;
     }
