@@ -26,7 +26,7 @@ public class GremlinTsunderePatch {
                     __instance.MOVES[0]
             );
             move1.add_effect(new DefendOtherEffect(
-                    (byte)ReflectionHacks.getPrivate(__instance, __instance.getClass(), "blockAmt")
+                    (int) ReflectionHacks.getPrivate(__instance, __instance.getClass(), "blockAmt")
             ));
             moves.add(move1);
 
