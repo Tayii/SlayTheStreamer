@@ -1,6 +1,7 @@
 package chronometry;
 
 import basemod.ReflectionHacks;
+import chronometry.patches.AbstractMonsterPatch;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import chronometry.effects.AttackEffect;
@@ -79,8 +80,30 @@ public class IntentData {
         }
     }
 
-    public boolean isAvailable(int phase_num) {
-        return this.phase_availability.size() == 0 || this.phase_availability.contains(phase_num);
+    public boolean isAvailable(byte phase_num) {
+        return this.cooldown == 0
+                && (this.phase_availability.size() == 0
+                || this.phase_availability.contains(phase_num));
+    }
+
+    public static ArrayList<IntentData> getAvailableMoves(AbstractMonster m) {
+        ArrayList<IntentData> list = AbstractMonsterPatch.intent_moves.get(m);
+        ArrayList<IntentData> new_list = new ArrayList<>();
+        if (list != null) {
+            byte phase_num = AbstractMonsterPatch.current_phase.get(m);
+            for (IntentData data: list) {
+                if (data.isAvailable(phase_num)) {
+                    new_list.add(data);
+                }
+            }
+        }
+        return new_list;
+    }
+
+    public static void refreshCooldown(AbstractMonster m) {
+        for (IntentData data: AbstractMonsterPatch.intent_moves.get(m)) {
+            data.refreshCooldown();
+        }
     }
 
     @Override

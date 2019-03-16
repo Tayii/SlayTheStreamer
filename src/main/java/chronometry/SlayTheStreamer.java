@@ -175,13 +175,11 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
         if (AbstractDungeon.getCurrRoom().monsters != null) {
             for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (m.isDying || !AbstractMonsterPatch.is_player.get(m)) { return; }
-                ArrayList<IntentData> moves = AbstractMonsterPatch.intent_moves.get(m);
-                if (moves != null && moves.size() > 1) {
+                ArrayList<IntentData> moves = IntentData.getAvailableMoves(m);
+                if (moves.size() > 0) {
                     m.setMove((byte)-1, AbstractMonster.Intent.UNKNOWN);
                     AbstractMonsterPatch.had_turn.set(m, false);
-                    for (IntentData data: moves) {
-                        data.refreshCooldown();
-                    }
+                    IntentData.refreshCooldown(m);
                     MonsterMessageRepeater.remindActions(m);
                 }
             }

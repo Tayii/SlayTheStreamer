@@ -23,30 +23,24 @@ public class MonsterMessageRepeater {
 			sb.append(monster.name.split(" ")[0]);
 			sb.append(" ");
 			sb.append(SlayTheStreamer.localizedChatEffects.get("TwitchNotification"));
-			sb.append(":");
+			sb.append(": ");
 			try {
 				Method phase_define_func = AbstractMonsterPatch.define_phase_func.get(monster);
 				if (phase_define_func != null) {
+					SlayTheStreamer.logger.info("found phase define");
 					phase_define_func.invoke(null, monster);
 				}
 			}
-			catch (IllegalAccessException | InvocationTargetException exc) { }
-			int phase_num = AbstractMonsterPatch.current_phase.get(monster);
-			int amount = 0;
-			IntentData last_data = null;
-			for (IntentData data: AbstractMonsterPatch.intent_moves.get(monster)) {
-				if (data.cooldown == 0 && data.isAvailable(phase_num)) {
-					sb.append(data.toString());
-					last_data = data;
-					amount++;
-				}
+			catch (IllegalAccessException | InvocationTargetException exc) {
+				SlayTheStreamer.logger.info("catched error in phase define");
 			}
-			if (amount == 0) {
+			ArrayList<IntentData> moves = IntentData.getAvailableMoves(monster);
+			if (moves.size() == 1) {
+				commandMonster(monster, moves.get(0));
 				return;
 			}
-			else if (amount == 1) {
-				commandMonster(monster, last_data);
-				return;
+			for (IntentData data: moves) {
+				sb.append(data.toString());
 			}
 
 			try {
@@ -72,10 +66,9 @@ public class MonsterMessageRepeater {
 						if (m.name.split(" ")[0].toLowerCase().equals(username.split(" ")[0].toLowerCase())) {
 							if (msg.startsWith("#") && !AbstractMonsterPatch.had_turn.get(m)) {
 								msg = msg.substring(1);
-								ArrayList<IntentData> moves = AbstractMonsterPatch.intent_moves.get(m);
-								int phase_num = AbstractMonsterPatch.current_phase.get(m);
+								ArrayList<IntentData> moves = IntentData.getAvailableMoves(m);
 								for (IntentData data: moves) {
-									if (data.move_name.equals(msg) && data.isAvailable(phase_num) && data.cooldown == 0) {
+									if (data.move_name.equals(msg)) {
 										commandMonster(m, data);
 										break;
 									}
