@@ -14,7 +14,7 @@ public class IntentData {
     public ArrayList<MoveEffect> effects;
     public int cooldown = 0;
     public int max_cooldown = 0;
-    public ArrayList<Integer> phase_availability;
+    public ArrayList<Byte> phase_availability;
 
     public IntentData(Class<? extends AbstractMonster> monsterClass, String intentCode, Intent intentType) {
         this(monsterClass, intentCode, intentType, 0);
@@ -45,7 +45,7 @@ public class IntentData {
     public void add_effect(MoveEffect effect) {
         this.effects.add(effect);
     }
-    public void add_phase(int phase_num) { this.phase_availability.add(phase_num); }
+    public void add_phase(byte phase_num) { this.phase_availability.add(phase_num); }
 
     public int getBaseDamage() {
         for (MoveEffect move: this.effects) {

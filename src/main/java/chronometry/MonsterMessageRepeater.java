@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.actions.animations.*;
 import de.robojumper.ststwitch.TwitchConnection;
 import de.robojumper.ststwitch.TwitchPanel;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -25,6 +24,13 @@ public class MonsterMessageRepeater {
 			sb.append(" ");
 			sb.append(SlayTheStreamer.localizedChatEffects.get("TwitchNotification"));
 			sb.append(":");
+			try {
+				Method phase_define_func = AbstractMonsterPatch.define_phase_func.get(monster);
+				if (phase_define_func != null) {
+					phase_define_func.invoke(null, monster);
+				}
+			}
+			catch (IllegalAccessException | InvocationTargetException exc) { }
 			int phase_num = AbstractMonsterPatch.current_phase.get(monster);
 			int amount = 0;
 			IntentData last_data = null;
@@ -49,9 +55,7 @@ public class MonsterMessageRepeater {
 				TwitchConnection conn = (TwitchConnection)m.invoke(null); //use null if the method is static
 				conn.sendMessage(sb.toString());
 			}
-			catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException exc) {
-
-			}
+			catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException exc) { }
 		}
 	}
 
