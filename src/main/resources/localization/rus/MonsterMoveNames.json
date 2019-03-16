@@ -27,6 +27,10 @@
   "LouseNormal": {
     "BITE": "Укус"
   },
+  "Sentry": {
+    "BOLT": "Разряд",
+    "BEAM": "Луч"
+  },
   "SpikeSlime_M": {
     "FLAME_TACKLE": "Плевок огнем"
   }
