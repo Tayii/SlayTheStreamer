@@ -70,7 +70,7 @@ public class IntentData {
     }
 
     public void setCooldown() {
-        this.cooldown = this.max_cooldown;
+        this.cooldown = this.max_cooldown + 1;
     }
 
     public void refreshCooldown() {
