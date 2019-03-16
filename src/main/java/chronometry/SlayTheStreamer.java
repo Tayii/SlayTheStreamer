@@ -204,7 +204,6 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
                         tokenType
                 )
         );
-        logger.info(SlayTheStreamer.localizedMonsterMoves.get("AcidSlime_M").get("NORMAL_TACKLE"));
 
         tokenType = new TypeToken<HashMap<String, String>>() {}.getType();
         SlayTheStreamer.localizedChatEffects = new HashMap<>(
@@ -213,6 +212,5 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
                         tokenType
                 )
         );
-        logger.info(SlayTheStreamer.localizedChatEffects.get("AttackEffect"));
     }
 }
