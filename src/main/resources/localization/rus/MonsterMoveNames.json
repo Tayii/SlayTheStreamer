@@ -3,7 +3,8 @@
     "NORMAL_TACKLE": "Плевок"
   },
   "AcidSlime_S": {
-    "TACKLE": "Плевок"
+    "TACKLE": "Плевок",
+    "DEBUFF": "Облизнуть"
   },
   "FungiBeast": {
     "BITE": "Укус"

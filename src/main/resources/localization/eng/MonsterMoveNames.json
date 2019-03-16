@@ -3,14 +3,15 @@
     "NORMAL_TACKLE": "Tackle"
   },
   "AcidSlime_S": {
-    "TACKLE": "Tackle"
+    "TACKLE": "Tackle",
+    "DEBUFF": "Lick"
   },
   "FungiBeast": {
     "BITE": "Bite"
   },
   "GremlinNob": {
     "BULL_RUSH": "Bull Rush",
-    "BELLOW": "Anger",
+    "BELLOW": "Enrage",
     "UNIQUE_1": "gains {num} Strength whenever Skill card is played"
   },
   "JawWorm": {
