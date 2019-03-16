@@ -12,11 +12,11 @@ import chronometry.effects.BuffStrengthEffect;
 
 import java.util.ArrayList;
 
-public class JawWormMoves {
+public class JawWormPatch {
     @SpirePatch(clz=JawWorm.class,
                 method=SpirePatch.CONSTRUCTOR,
                 paramtypez = {float.class, float.class, boolean.class})
-    public static class JawWormInitMoves {
+    public static class InitMoves {
         public static void Postfix(JawWorm __instance, final float x, final float y, final boolean hard) {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 

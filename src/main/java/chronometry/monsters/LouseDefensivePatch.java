@@ -11,11 +11,11 @@ import com.megacrit.cardcrawl.monsters.exordium.LouseDefensive;
 
 import java.util.ArrayList;
 
-public class LouseDefensiveMoves {
+public class LouseDefensivePatch {
     @SpirePatch(clz=LouseDefensive.class,
                 method=SpirePatch.CONSTRUCTOR,
                 paramtypez = {float.class, float.class})
-    public static class LouseDefensiveInitMoves {
+    public static class InitMoves {
         public static void Postfix(LouseDefensive __instance, float x, float y) {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 

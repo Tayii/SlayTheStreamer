@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.exordium.AcidSlime_S;
 
 import java.util.ArrayList;
 
-public class AcidSlimeSMoves {
+public class AcidSlimeSPatch {
     @SpirePatch(clz=AcidSlime_S.class,
                 method=SpirePatch.CONSTRUCTOR,
                 paramtypez = {float.class, float.class, int.class})

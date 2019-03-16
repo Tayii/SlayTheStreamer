@@ -12,11 +12,11 @@ import com.megacrit.cardcrawl.monsters.exordium.LouseNormal;
 
 import java.util.ArrayList;
 
-public class LouseNormalMoves {
+public class LouseNormalPatch {
     @SpirePatch(clz=LouseNormal.class,
                 method=SpirePatch.CONSTRUCTOR,
                 paramtypez = {float.class, float.class})
-    public static class LouseNormalInitMoves {
+    public static class InitMoves {
         public static void Postfix(LouseNormal __instance, float x, float y) {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 

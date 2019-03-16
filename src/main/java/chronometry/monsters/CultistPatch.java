@@ -11,11 +11,11 @@ import com.megacrit.cardcrawl.monsters.exordium.Cultist;
 
 import java.util.ArrayList;
 
-public class CultistMoves {
+public class CultistPatch {
     @SpirePatch(clz=Cultist.class,
                 method=SpirePatch.CONSTRUCTOR,
                 paramtypez = {float.class, float.class, boolean.class})
-    public static class CultistInitMoves {
+    public static class InitMoves {
         public static void Postfix(Cultist __instance, float x, float y, boolean talk) {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
@@ -26,7 +26,7 @@ public class CultistMoves {
             );
             move1.add_effect(new AttackEffect(
                     __instance.damage.get(0),
-                    0
+                    1
             ));
             moves.add(move1);
 
@@ -37,7 +37,7 @@ public class CultistMoves {
             );
             move3.add_effect(new UniqueEffect(
                     Intent.BUFF,
-                    "повышает силу каждый ход на {num}",
+                    "повышает силу каждый ход на {num}", // gains {num} strength every turn
                     (int)ReflectionHacks.getPrivate(__instance, __instance.getClass(), "ritualAmount"),
                     0
             ));
