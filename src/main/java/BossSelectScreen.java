@@ -59,12 +59,12 @@ public class BossSelectScreen {
         this.isVoting = false;
         this.mayVote = false;
 
-        this.monsterX.add(964.0f);
-        this.monsterY.add(540.0f);
-        this.monsterX.add(804.0f);
-        this.monsterY.add(360.0f);
-        this.monsterX.add(1124.0f);
-        this.monsterY.add(360.0f);
+        this.monsterX.add(964.0f * Settings.scale);
+        this.monsterY.add(540.0f * Settings.scale);
+        this.monsterX.add(804.0f * Settings.scale);
+        this.monsterY.add(360.0f * Settings.scale);
+        this.monsterX.add(1124.0f * Settings.scale);
+        this.monsterY.add(360.0f * Settings.scale);
 
         this.smokeImg = ImageMaster.loadImage("versusImages/BossScreenOverlay.png");
 
