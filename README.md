@@ -14,3 +14,4 @@ To get mods running...
 * Download Slay the Streamer (https://github.com/Tempus/SlayTheStreamer/releases) and put it in the mods folder as well. 
 * Double click on MTS.cmd to start the game with mods.
 
+//I'll make releases later, when I finish at least Act 1. - Tayii
