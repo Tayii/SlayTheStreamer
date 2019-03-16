@@ -1,5 +1,7 @@
 package chronometry;
 
+import basemod.ReflectionHacks;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import chronometry.effects.AttackEffect;
 import chronometry.effects.UniqueEffect;
@@ -13,11 +15,17 @@ public class IntentData {
     public ArrayList<MoveEffect> effects;
     public int cooldown;
 
-    public IntentData(byte intent_code, Intent intent_type, String move_name) {
-        this.intent_code = intent_code;
+    public IntentData(Class<? extends AbstractMonster> monsterClass, String intentCode, Intent intentType) {
+        this(monsterClass, intentCode, intentType,
+                SlayTheStreamer.localizedMonsterMoves.get(monsterClass.getSimpleName()).get(intentCode));
+    }
+
+    public IntentData(Class<? extends AbstractMonster> monsterClass, String intent_code,
+                      Intent intent_type, String move_name) {
+        this.intent_code = (byte) ReflectionHacks.getPrivateStatic(monsterClass, intent_code);
         this.intent_type = intent_type;
         this.move_name = move_name;
-        this.effects = new ArrayList<MoveEffect>();
+        this.effects = new ArrayList<>();
     }
 
     public void add_effect(MoveEffect effect) {
@@ -75,6 +83,7 @@ public class IntentData {
         sb.append(" ");
         for (MoveEffect move: this.effects) {
             sb.append(move.toString());
+            sb.append(" ");
         }
         return sb.toString();
     }

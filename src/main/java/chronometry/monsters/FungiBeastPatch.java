@@ -1,26 +1,28 @@
 package chronometry.monsters;
 
+import basemod.ReflectionHacks;
 import chronometry.patches.AbstractMonsterPatch;
 import chronometry.IntentData;
 import chronometry.effects.AttackEffect;
-import chronometry.effects.DebuffWeakEffect;
+import chronometry.effects.BuffStrengthEffect;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
-import com.megacrit.cardcrawl.monsters.exordium.AcidSlime_S;
+import com.megacrit.cardcrawl.monsters.exordium.FungiBeast;
 
 import java.util.ArrayList;
 
-public class AcidSlimeSPatch {
-    @SpirePatch(clz=AcidSlime_S.class,
+public class FungiBeastPatch {
+    @SpirePatch(clz=FungiBeast.class,
                 method=SpirePatch.CONSTRUCTOR,
-                paramtypez = {float.class, float.class, int.class})
-    public static class AcidSlimeSInitMoves {
-        public static void Postfix(AcidSlime_S __instance, float x, float y, int poisonAmount) {
+                paramtypez = {float.class, float.class})
+    public static class InitMoves {
+        public static void Postfix(FungiBeast __instance, float x, float y) {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
             IntentData move1 = new IntentData(
                     __instance.getClass(),
-                    "TACKLE",
+                    "BITE",
                     Intent.ATTACK
             );
             move1.add_effect(new AttackEffect(__instance.damage.get(0)));
@@ -28,10 +30,15 @@ public class AcidSlimeSPatch {
 
             IntentData move2 = new IntentData(
                     __instance.getClass(),
-                    "DEBUFF",
-                    Intent.DEBUFF
+                    "GROW",
+                    Intent.BUFF,
+                    __instance.MOVES[0]
             );
-            move2.add_effect(new DebuffWeakEffect(1));
+            int strAmt = (int)ReflectionHacks.getPrivate(__instance, __instance.getClass(), "strAmt");
+            if (AbstractDungeon.ascensionLevel >= 17) {
+                strAmt += 1;
+            }
+            move2.add_effect(new BuffStrengthEffect(strAmt));
             moves.add(move2);
 
             AbstractMonsterPatch.intent_moves.set(__instance, moves);

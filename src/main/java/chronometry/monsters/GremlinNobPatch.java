@@ -1,6 +1,5 @@
 package chronometry.monsters;
 
-import basemod.ReflectionHacks;
 import chronometry.IntentData;
 import chronometry.effects.AttackEffect;
 import chronometry.effects.DebuffVulnerableEffect;
@@ -22,43 +21,35 @@ public class GremlinNobPatch {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
             IntentData move1 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "BULL_RUSH"),
-                    Intent.ATTACK,
-                    "Bull Rush"
+                    __instance.getClass(),
+                    "BULL_RUSH",
+                    Intent.ATTACK
             );
-            move1.add_effect(new AttackEffect(
-                    __instance.damage.get(0),
-                    1
-            ));
+            move1.add_effect(new AttackEffect(__instance.damage.get(0)));
             moves.add(move1);
 
             IntentData move2 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "SKULL_BASH"),
-                    Intent.BUFF,
-                    "Skull Bash"
+                    __instance.getClass(),
+                    "SKULL_BASH",
+                    Intent.ATTACK_DEBUFF
             );
-            move2.add_effect(new AttackEffect(
-                    __instance.damage.get(1),
-                    1
-            ));
-            move2.add_effect(new DebuffVulnerableEffect(
-                    2
-            ));
+            move2.add_effect(new AttackEffect(__instance.damage.get(1)));
+            move2.add_effect(new DebuffVulnerableEffect(2));
             moves.add(move2);
 
             IntentData move3 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "BELLOW"),
+                    __instance.getClass(),
+                    "BELLOW",
                     Intent.BUFF,
-                    GremlinNob.MOVES[0]
+                    __instance.MOVES[0]
             );
             int strength_gain = 2;
             if (AbstractDungeon.ascensionLevel >= 18) {
                 strength_gain = 3;
             }
             move3.add_effect(new UniqueEffect(
-                    Intent.BUFF,
-                    "повышает силу на {num} за каждое использование карты Навыка",
-                    // gains {num} strength for every use of Skill card
+                    __instance.getClass(),
+                    "UNIQUE",
                     strength_gain,
                     0
             ));

@@ -1,6 +1,5 @@
 package chronometry.monsters;
 
-import basemod.ReflectionHacks;
 import chronometry.patches.AbstractMonsterPatch;
 import chronometry.IntentData;
 import chronometry.effects.AttackEffect;
@@ -20,24 +19,20 @@ public class LouseDefensivePatch {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
             IntentData move3 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "BITE"),
-                    Intent.ATTACK,
-                    "Bite"
+                    __instance.getClass(),
+                    "BITE",
+                    Intent.ATTACK
             );
-            move3.add_effect(new AttackEffect(
-                    __instance.damage.get(0),
-                    1
-            ));
+            move3.add_effect(new AttackEffect(__instance.damage.get(0)));
             moves.add(move3);
 
             IntentData move4 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "WEAKEN"),
+                    __instance.getClass(),
+                    "WEAKEN",
                     Intent.DEBUFF,
-                    LouseDefensive.MOVES[0]
+                    __instance.MOVES[0]
             );
-            move4.add_effect(new DebuffWeakEffect(
-                    2
-            ));
+            move4.add_effect(new DebuffWeakEffect(2));
             moves.add(move4);
 
             AbstractMonsterPatch.intent_moves.set(__instance, moves);

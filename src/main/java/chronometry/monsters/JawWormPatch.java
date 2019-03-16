@@ -21,20 +21,18 @@ public class JawWormPatch {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
             IntentData move1 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "CHOMP"),
-                    Intent.ATTACK,
-                    "Chomp"
+                    __instance.getClass(),
+                    "CHOMP",
+                    Intent.ATTACK
             );
-            move1.add_effect(new AttackEffect(
-                    __instance.damage.get(0),
-                    1
-            ));
+            move1.add_effect(new AttackEffect(__instance.damage.get(0)));
             moves.add(move1);
 
             IntentData move2 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "BELLOW"),
+                    __instance.getClass(),
+                    "BELLOW",
                     Intent.DEFEND_BUFF,
-                    JawWorm.MOVES[0]
+                    __instance.MOVES[0]
             );
             move2.add_effect(new DefendEffect(
                     (int)ReflectionHacks.getPrivate(__instance, __instance.getClass(), "bellowBlock")
@@ -45,14 +43,12 @@ public class JawWormPatch {
             moves.add(move2);
 
             IntentData move3 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "THRASH"),
+                    __instance.getClass(),
+                    "THRASH",
                     Intent.ATTACK_DEFEND,
-                    JawWorm.MOVES[1]
+                    __instance.MOVES[1]
             );
-            move3.add_effect(new AttackEffect(
-                    __instance.damage.get(1),
-                    1
-            ));
+            move3.add_effect(new AttackEffect(__instance.damage.get(1)));
             move3.add_effect(new DefendEffect(
                     (int)ReflectionHacks.getPrivate(__instance, __instance.getClass(), "thrashBlock")
             ));

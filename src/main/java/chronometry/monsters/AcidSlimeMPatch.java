@@ -1,6 +1,5 @@
 package chronometry.monsters;
 
-import basemod.ReflectionHacks;
 import chronometry.patches.AbstractMonsterPatch;
 import chronometry.IntentData;
 import chronometry.effects.AttackEffect;
@@ -22,39 +21,30 @@ public class AcidSlimeMPatch {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
             IntentData move1 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "WOUND_TACKLE"),
+                    __instance.getClass(),
+                    "WOUND_TACKLE",
                     Intent.ATTACK_DEBUFF,
-                    AcidSlime_M.MOVES[0]
+                    __instance.MOVES[0]
             );
-            move1.add_effect(new AttackEffect(
-                    __instance.damage.get(0),
-                    1
-            ));
-            move1.add_effect(new DebuffCardDiscardEffect(
-                    Slimed.NAME,
-                    1
-            ));
+            move1.add_effect(new AttackEffect(__instance.damage.get(0)));
+            move1.add_effect(new DebuffCardDiscardEffect(Slimed.NAME, 1));
             moves.add(move1);
 
             IntentData move2 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "NORMAL_TACKLE"),
-                    Intent.ATTACK,
-                    "Normal Tackle"
+                    __instance.getClass(),
+                    "NORMAL_TACKLE",
+                    Intent.ATTACK
             );
-            move2.add_effect(new AttackEffect(
-                    __instance.damage.get(1),
-                    1
-            ));
+            move2.add_effect(new AttackEffect(__instance.damage.get(1)));
             moves.add(move2);
 
             IntentData move4 = new IntentData(
-                    (byte)ReflectionHacks.getPrivateStatic(__instance.getClass(), "WEAK_LICK"),
+                    __instance.getClass(),
+                    "WEAK_LICK",
                     Intent.DEBUFF,
-                    AcidSlime_M.MOVES[1]
+                    __instance.MOVES[1]
             );
-            move4.add_effect(new DebuffWeakEffect(
-                    1
-            ));
+            move4.add_effect(new DebuffWeakEffect(1));
             moves.add(move4);
 
             AbstractMonsterPatch.intent_moves.set(__instance, moves);
