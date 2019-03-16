@@ -13,18 +13,31 @@ public class IntentData {
     public Intent intent_type;
     public String move_name;
     public ArrayList<MoveEffect> effects;
-    public int cooldown;
+    public int cooldown = 0;
+    public int max_cooldown = 0;
 
     public IntentData(Class<? extends AbstractMonster> monsterClass, String intentCode, Intent intentType) {
-        this(monsterClass, intentCode, intentType,
-                SlayTheStreamer.localizedMonsterMoves.get(monsterClass.getSimpleName()).get(intentCode));
+        this(monsterClass, intentCode, intentType, 0);
     }
 
-    public IntentData(Class<? extends AbstractMonster> monsterClass, String intent_code,
+    public IntentData(Class<? extends AbstractMonster> monsterClass, String intentCode,
+                      Intent intent_type, int max_cooldown) {
+        this(monsterClass, intentCode, intent_type,
+                SlayTheStreamer.localizedMonsterMoves.get(monsterClass.getSimpleName()).get(intentCode),
+                max_cooldown);
+    }
+
+    public IntentData(Class<? extends AbstractMonster> monsterClass, String intentCode,
                       Intent intent_type, String move_name) {
-        this.intent_code = (byte) ReflectionHacks.getPrivateStatic(monsterClass, intent_code);
+        this(monsterClass, intentCode, intent_type, move_name, 0);
+    }
+
+    public IntentData(Class<? extends AbstractMonster> monsterClass, String intentCode,
+                      Intent intent_type, String move_name, int max_cooldown) {
+        this.intent_code = (byte) ReflectionHacks.getPrivateStatic(monsterClass, intentCode);
         this.intent_type = intent_type;
         this.move_name = move_name;
+        this.max_cooldown = max_cooldown;
         this.effects = new ArrayList<>();
     }
 
@@ -54,25 +67,14 @@ public class IntentData {
         return this.getMultiplier() > 1;
     }
 
-    public void setCooldown(int move_size) {
-        if (this.isUnique()) {
-            this.cooldown = 1;
-        }
+    public void setCooldown() {
+        this.cooldown = this.max_cooldown;
     }
 
     public void refreshCooldown() {
-        if (this.cooldown > 0 && !this.isUnique()) {
+        if (this.cooldown > 0) {
             this.cooldown -= 1;
         }
-    }
-
-    public boolean isUnique() {
-        for (MoveEffect move: this.effects) {
-            if (move instanceof UniqueEffect) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
