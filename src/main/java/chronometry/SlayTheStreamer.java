@@ -19,6 +19,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import chronometry.patches.*;
 import chronometry.patches.NoSkipBossRelicPatch;
 
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import de.robojumper.ststwitch.*;
@@ -29,7 +31,7 @@ import de.robojumper.ststwitch.*;
 
 @SpireInitializer
 public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubscriber,
-        PostDungeonInitializeSubscriber {
+        PostDungeonInitializeSubscriber, PostEnergyRechargeSubscriber, OnStartBattleSubscriber {
 
     public static final Logger logger = LogManager.getLogger(SlayTheStreamer.class.getName());
 
@@ -154,6 +156,27 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
         Settings.isFinalActAvailable = true;
         if (config.getBool("VoteOnBosses")) {
             this.bossHidden = true;
+        }
+    }
+
+    public void receiveOnBattleStart(AbstractRoom room) {
+        this.receivePostEnergyRecharge();
+    }
+
+    public void receivePostEnergyRecharge() {
+        if (AbstractDungeon.getCurrRoom().monsters != null) {
+            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (m.isDying || !AbstractMonsterPatch.is_player.get(m)) { return; }
+                ArrayList<IntentData> moves = AbstractMonsterPatch.intent_moves.get(m);
+                if (moves != null && moves.size() > 1) {
+                    m.setMove((byte)99, AbstractMonster.Intent.UNKNOWN);
+                    AbstractMonsterPatch.had_turn.set(m, false);
+                    for (IntentData data: moves) {
+                        data.refreshCooldown();
+                    }
+                    MonsterMessageRepeater.remindActions(m);
+                }
+            }
         }
     }
 }

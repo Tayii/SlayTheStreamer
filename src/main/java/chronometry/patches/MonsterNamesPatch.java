@@ -119,6 +119,7 @@ public class MonsterNamesPatch {
 
 				//.substring(0, 1).toUpperCase() + username.substring(1);
 				self.name = username;
+				AbstractMonsterPatch.is_player.set(self, true);
 				votedUsernames.remove(usernameOrigin);
 			}
         }
