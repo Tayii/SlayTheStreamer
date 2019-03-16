@@ -6,7 +6,7 @@
   "dependencies": ["basemod"],
   "version": "2.0",
   "credits": "v1.0 by Chronometrics (Special thanks to Baalorlord, Karisa). v2.0 by Tayi_Saito (credits to GyeRyak for commits before)",
-  "sts_version": "01-23-2018",
+  "sts_version": "01-23-2019",
   "mts_version": "3.8.3",
   "update_json": "https://api.github.com/repos/tempus/SlayTheStreamer/releases/latest"
 }
