@@ -1,28 +1,28 @@
 {
   "AcidSlime_M": {
-    "NORMAL_TACKLE": "Tackle"
+    "NORMAL_TACKLE": "Плевок"
   },
   "AcidSlime_S": {
-    "TACKLE": "Tackle"
+    "TACKLE": "Плевок"
   },
   "FungiBeast": {
-    "BITE": "Bite"
+    "BITE": "Укус"
   },
   "GremlinNob": {
-    "BULL_RUSH": "Bull Rush",
-    "SKULL_BASH": "Skull Bash",
+    "BULL_RUSH": "Рывок рогами",
+    "SKULL_BASH": "Раздробить череп",
     "UNIQUE_1": "получает +{num} к Силе за каждую сыгранную карту Навыка"
   },
   "JawWorm": {
-    "CHOMP": "Chomp"
+    "CHOMP": "Погрызть"
   },
   "LouseDefensive": {
-    "BITE": "Bite"
+    "BITE": "Укус"
   },
   "LouseNormal": {
-    "BITE": "Bite"
+    "BITE": "Укус"
   },
   "SpikeSlime_M": {
-    "FLAME_TACKLE": "Flame Tackle"
+    "FLAME_TACKLE": "Плевок огнем"
   }
 }
