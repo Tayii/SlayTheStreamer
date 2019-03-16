@@ -35,7 +35,7 @@ public class IntentData {
 
     public int getMultiplier() {
         for (MoveEffect move: this.effects) {
-            if (move instanceof AttackEffect) {
+            if (move instanceof AttackEffect && move.multiplier > 1) {
                 return move.multiplier;
             }
         }
@@ -43,7 +43,7 @@ public class IntentData {
     }
 
     public boolean isMulti() {
-        return this.getMultiplier() > 0;
+        return this.getMultiplier() > 1;
     }
 
     public void setCooldown(int move_size) {
