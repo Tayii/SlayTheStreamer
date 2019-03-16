@@ -1,4 +1,5 @@
 {
+  "TwitchNotification": "ваши действия",
   "AttackEffect": "наносит {num}{mul} урона",
   "BuffStrengthEffect": "получает {num} силы",
   "DebuffCardDiscardEffect": "добавляет {num} {effect} карт в стопку сброса",

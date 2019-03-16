@@ -21,7 +21,8 @@ public class MonsterMessageRepeater {
 			StringBuilder sb = new StringBuilder();
 			sb.append("@");
 			sb.append(monster.name.split(" ")[0]);
-			sb.append(", ваши действия: "); // your actions
+			sb.append(SlayTheStreamer.localizedChatEffects.get("TwitchNotification"));
+			sb.append(":");
 			for (IntentData data: AbstractMonsterPatch.intent_moves.get(monster)) {
 				if (data.cooldown == 0) {
 					sb.append(data.toString());
@@ -59,7 +60,7 @@ public class MonsterMessageRepeater {
 										m.setMove(data.move_name, data.intent_code, data.intent_type,
 												data.getBaseDamage(), data.getMultiplier(), data.isMulti());
 										m.createIntent();
-										data.setCooldown(moves.size());
+										data.setCooldown();
 										AbstractMonsterPatch.had_turn.set(m, true);
 										break;
 									}

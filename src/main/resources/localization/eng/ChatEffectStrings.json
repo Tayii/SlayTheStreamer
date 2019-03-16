@@ -1,4 +1,5 @@
 {
+  "TwitchNotification": "your actions",
   "AttackEffect": "deals {num}{mul} damage",
   "BuffStrengthEffect": "gains {num} strength",
   "DebuffCardDiscardEffect": "add {num} {effect} cards to the discard pile",
