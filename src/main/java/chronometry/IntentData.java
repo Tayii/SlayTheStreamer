@@ -4,7 +4,6 @@ import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import chronometry.effects.AttackEffect;
-import chronometry.effects.UniqueEffect;
 
 import java.util.ArrayList;
 

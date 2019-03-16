@@ -41,7 +41,8 @@ public class GremlinNobPatch {
                     __instance.getClass(),
                     "BELLOW",
                     Intent.BUFF,
-                    __instance.MOVES[0]
+                    __instance.MOVES[0],
+                    -1
             );
             int strength_gain = 2;
             if (AbstractDungeon.ascensionLevel >= 18) {
