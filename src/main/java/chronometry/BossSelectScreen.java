@@ -223,10 +223,16 @@ public class BossSelectScreen {
             this.renderTwitchVotes(sb);
         }
 
+        // comment below was written by original author, Chronometrics I think
+
         // For whomever next looks at this code, I just want you to know
         //
         //      You are beautiful to me
         //
+
+        // and this is my (Tayi_Saito) answer
+
+        //      AYAYA Clap <3
     }
     
     public void renderTwitchVotes(final SpriteBatch sb) {
