@@ -71,13 +71,25 @@ public class IntentData {
     }
 
     public void setCooldown() {
-        this.cooldown = this.max_cooldown + 1;
+        this.cooldown = this.max_cooldown;
+        if (this.cooldown > 0) {
+            this.cooldown += 1;
+        }
+        SlayTheStreamer.logger.info("move ".concat(this.move_name).concat(" cooldown set to ")
+                .concat(String.valueOf(this.cooldown)));
     }
 
     public void refreshCooldown() {
+        int cooldown = this.cooldown;
         if (this.cooldown > 0) {
             this.cooldown -= 1;
         }
+        SlayTheStreamer.logger.info("move ".concat(this.move_name).concat(" cooldown refreshed from ")
+                .concat(String.valueOf(cooldown)).concat(" to ").concat(String.valueOf(this.cooldown)));
+    }
+
+    public boolean equals(Class<? extends AbstractMonster> monsterClass, String intentCode) {
+        return this.intent_code == (byte) ReflectionHacks.getPrivateStatic(monsterClass, intentCode);
     }
 
     public boolean isAvailable(byte phase_num) {
@@ -91,7 +103,12 @@ public class IntentData {
         ArrayList<IntentData> new_list = new ArrayList<>();
         if (list != null) {
             byte phase_num = AbstractMonsterPatch.current_phase.get(m);
+            SlayTheStreamer.logger.info("monster ".concat(m.name).concat(" in phase ")
+                    .concat(String.valueOf(phase_num)));
             for (IntentData data: list) {
+                SlayTheStreamer.logger.info("- move ".concat(data.move_name).concat(" cooldown ")
+                        .concat(String.valueOf(data.cooldown)).concat(" available ")
+                        .concat(String.valueOf(data.isAvailable(phase_num))));
                 if (data.isAvailable(phase_num)) {
                     new_list.add(data);
                 }
@@ -106,11 +123,22 @@ public class IntentData {
         }
     }
 
-    @Override
     public String toString() {
+        return this.toString(-1);
+    }
+
+    public String toString(int num) {
         StringBuilder sb = new StringBuilder();
         sb.append("#");
-        sb.append(this.move_name);
+        if (num >= 0) {
+            sb.append(num);
+            sb.append(" ");
+            sb.append(this.move_name);
+            sb.append(":");
+        }
+        else {
+            sb.append(this.move_name.replaceAll("\\s", "_").toUpperCase());
+        }
         sb.append(" ");
         for (MoveEffect move: this.effects) {
             sb.append(move.toString());
