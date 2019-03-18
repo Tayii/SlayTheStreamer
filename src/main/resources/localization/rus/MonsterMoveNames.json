@@ -21,8 +21,14 @@
     "BELLOW": "Бешенство",
     "UNIQUE_1": "получает +{num} к Силе за каждую сыгранную карту Навыка"
   },
+  "Hexaghost": {
+    "TACKLE": "Удар огнем"
+  },
   "JawWorm": {
     "CHOMP": "Погрызть"
+  },
+  "Lagavulin": {
+    "STRONG_ATK": "Мощный удар"
   },
   "Looter": {
     "SMOKE_BOMB": "Дымовая бомба",
@@ -43,7 +49,11 @@
     "STAB": "Удар"
   },
   "SlaverRed": {
-    "STAB": "Удар"
+    "STAB": "Удар",
+    "UNIQUE_1": "запрещает использовать карты Атаки на {num} ходов"
+  },
+  "SlimeBoss": {
+    "UNIQUE_1": "готовит мощный удар"
   },
   "SpikeSlime_L": {
     "FLAME_TACKLE": "Плевок огнем"
