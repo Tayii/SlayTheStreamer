@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class AbstractMonsterPatch {
     public static SpireField<ArrayList<IntentData>> intent_moves = new SpireField<>(() -> null);
     public static SpireField<Byte> current_phase = new SpireField<>(() -> (byte)0);
-    public static SpireField<Method> define_phase_func = new SpireField<>(() -> null);
+    public static SpireField<Method> turn_start_func = new SpireField<>(() -> null);
+    public static SpireField<Method> after_action_func = new SpireField<>(() -> null);
     public static SpireField<Boolean> is_player = new SpireField<>(() -> false);
     public static SpireField<Boolean> had_turn = new SpireField<>(() -> false);
 }
