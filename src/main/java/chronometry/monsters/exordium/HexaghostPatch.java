@@ -1,4 +1,4 @@
-package chronometry.monsters;
+package chronometry.monsters.exordium;
 
 import basemod.ReflectionHacks;
 import chronometry.IntentData;

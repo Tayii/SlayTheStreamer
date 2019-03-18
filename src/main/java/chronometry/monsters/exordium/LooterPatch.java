@@ -1,59 +1,63 @@
-package chronometry.monsters;
+package chronometry.monsters.exordium;
 
+import basemod.ReflectionHacks;
 import chronometry.IntentData;
 import chronometry.effects.AttackEffect;
-import chronometry.effects.DebuffVulnerableEffect;
+import chronometry.effects.DefendEffect;
 import chronometry.effects.UniqueEffect;
 import chronometry.patches.AbstractMonsterPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
-import com.megacrit.cardcrawl.monsters.exordium.GremlinNob;
+import com.megacrit.cardcrawl.monsters.exordium.Looter;
 
 import java.util.ArrayList;
 
-public class GremlinNobPatch {
-    @SpirePatch(clz=GremlinNob.class,
+public class LooterPatch {
+    @SpirePatch(clz=Looter.class,
                 method=SpirePatch.CONSTRUCTOR,
-                paramtypez = {float.class, float.class, boolean.class})
+                paramtypez = {float.class, float.class})
     public static class InitMoves {
-        public static void Postfix(GremlinNob __instance, float x, float y, boolean setVuln) {
+        public static void Postfix(Looter __instance, float x, float y) {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
             IntentData move1 = new IntentData(
                     __instance.getClass(),
-                    "BULL_RUSH",
-                    Intent.ATTACK
+                    "MUG",
+                    Intent.ATTACK,
+                    __instance.MOVES[1]
             );
             move1.add_effect(new AttackEffect(__instance.damage.get(0)));
             moves.add(move1);
 
             IntentData move2 = new IntentData(
                     __instance.getClass(),
-                    "SKULL_BASH",
-                    Intent.ATTACK_DEBUFF,
-                    __instance.MOVES[0]
+                    "SMOKE_BOMB",
+                    Intent.DEFEND
             );
-            move2.add_effect(new AttackEffect(__instance.damage.get(1)));
-            move2.add_effect(new DebuffVulnerableEffect(2));
+            move2.add_effect(new DefendEffect(
+                    (int)ReflectionHacks.getPrivate(__instance, __instance.getClass(), "escapeDef")
+            ));
             moves.add(move2);
 
             IntentData move3 = new IntentData(
                     __instance.getClass(),
-                    "BELLOW",
-                    Intent.BUFF,
-                    -1
+                    "ESCAPE",
+                    Intent.ESCAPE
             );
-            int strength_gain = 2;
-            if (AbstractDungeon.ascensionLevel >= 18) {
-                strength_gain = 3;
-            }
             move3.add_effect(new UniqueEffect(
                     __instance.getClass(),
-                    "UNIQUE_1",
-                    strength_gain
+                    "UNIQUE_1"
             ));
             moves.add(move3);
+
+            IntentData move4 = new IntentData(
+                    __instance.getClass(),
+                    "LUNGE",
+                    Intent.ATTACK,
+                    __instance.MOVES[0]
+            );
+            move4.add_effect(new AttackEffect(__instance.damage.get(1)));
+            moves.add(move4);
 
             AbstractMonsterPatch.intent_moves.set(__instance, moves);
         }

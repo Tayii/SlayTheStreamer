@@ -1,8 +1,7 @@
-package chronometry.monsters;
+package chronometry.monsters.exordium;
 
 import basemod.ReflectionHacks;
 import chronometry.IntentData;
-import chronometry.SlayTheStreamer;
 import chronometry.effects.AttackEffect;
 import chronometry.effects.DebuffDexterityEffect;
 import chronometry.effects.DebuffStrengthEffect;

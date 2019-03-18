@@ -1,4 +1,4 @@
-package chronometry.monsters;
+package chronometry.monsters.exordium;
 
 import chronometry.patches.AbstractMonsterPatch;
 import chronometry.IntentData;
