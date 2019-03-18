@@ -13,6 +13,23 @@ To get mods running...
 * Download BaseMod from Steam Workshop
 * (Only required for Russian language) Download Better Twitch Integration from Steam Workshop
 * Download Slay the Streamer (https://github.com/Tayii/SlayTheStreamer/releases) and put it in the 'mods' folder (which is in SlayTheSpire folder).
-* Launch the game with Steam, choose "With mods", mark all the mods above and click "Play".
+* Config your twitchconfig.txt file in the SlayTheSpire folder
+* Launch the game from Steam Library, choose "With mods", mark all the mods above and click "Play"
+* When in the game, enable Twitch Integration
 
-I'll make releases later, when I finish at least Act 1. - Tayii
+## How to play
+
+1. Voting on Neow
+
+Don't choose anything, wait for the chat to decide the option for you.
+2. Chat monsters names
+
+When a battle starts, every monster is assigned to a random chatter who voted in the previous voting.
+
+3. Monster commands
+
+At the start of a turn, every assigned monster is having UNKNOWN intentions, and the command list is sent to the matched chatter. The chatter can activate a move by typing # and one of the commands. Only one move can be activated per turn. The streamer MUST NOT make any play until every chat monster chose it's action (actually, the streamer is able to, but it is against the honest game rules).
+
+4. Voting on bosses
+
+At the start of an act, the boss is unknown. After reaching the treasure room in the middle of an act, the boss select screen opens, and the voting begins.
