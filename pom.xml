@@ -6,7 +6,7 @@
     <!-- Change These to match your mod -->
     <groupId>chronometry</groupId>
     <artifactId>SlayTheStreamer</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.3</version>
     <packaging>jar</packaging>
     <name>Slay the Streamer</name>
     <description>Chat vs Streamer in the ultimate showdown! The streamer begins with a winnable deck, and chat tries to find ways to ruin it by voting and influencing the run throughout the stream. Requires Twitch Integration to work.</description>

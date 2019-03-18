@@ -4,9 +4,9 @@
   "author_list": ["Chronometrics", "Tayi_Saito"],
   "description": "Chat vs Streamer in the ultimate showdown! The streamer begins with a winnable deck, and chat tries to find ways to ruin it by voting and influencing the run throughout the stream. Requires Twitch Integration to work.",
   "dependencies": ["basemod"],
-  "version": "2.0",
-  "credits": "v1.0 by Chronometrics (Special thanks to Baalorlord, Karisa). v2.0 by Tayi_Saito (credits to GyeRyak for commits before)",
+  "version": "2.0.3",
+  "credits": "v1.0 by Chronometrics (Special thanks to Baalorlord, Karisa). v2+ by Tayi_Saito (credits to GyeRyak for commits before)",
   "sts_version": "01-23-2019",
   "mts_version": "3.8.3",
-  "update_json": "https://api.github.com/repos/tempus/SlayTheStreamer/releases/latest"
+  "update_json": "https://api.github.com/repos/Tayii/SlayTheStreamer/releases/latest"
 }
