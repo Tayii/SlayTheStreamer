@@ -1,5 +1,7 @@
 package chronometry;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
@@ -173,9 +175,29 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
 
     public void receivePostEnergyRecharge() {
         if (AbstractDungeon.getCurrRoom().monsters != null) {
-            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (m.isDying || !AbstractMonsterPatch.is_player.get(m)) { return; }
+            Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+            AbstractMonster m;
+            SlayTheStreamer.logger.info("monster group size "
+                    .concat(String.valueOf(AbstractDungeon.getCurrRoom().monsters.monsters.size())));
+            while (var1.hasNext()) {
+                m = (AbstractMonster)var1.next();
+                SlayTheStreamer.logger.info("monster ".concat(m.name).concat(" isDying ")
+                        .concat(String.valueOf(m.isDying)).concat(" isPlayer ")
+                        .concat(String.valueOf(AbstractMonsterPatch.is_player.get(m))));
+                if (m.isDying || !AbstractMonsterPatch.is_player.get(m)) { continue; }
+                SlayTheStreamer.logger.info("monster ".concat(m.name));
+                try {
+                    Method turn_start_func = AbstractMonsterPatch.turn_start_func.get(m);
+                    if (turn_start_func != null) {
+                        SlayTheStreamer.logger.info("found turn start func");
+                        turn_start_func.invoke(null, m);
+                    }
+                }
+                catch (IllegalAccessException | InvocationTargetException exc) {
+                    SlayTheStreamer.logger.info("catched error in turn start func");
+                }
                 ArrayList<IntentData> moves = IntentData.getAvailableMoves(m);
+                SlayTheStreamer.logger.info("moves available ".concat(String.valueOf(moves.size())));
                 if (moves.size() > 0) {
                     m.setMove((byte)-1, AbstractMonster.Intent.UNKNOWN);
                     AbstractMonsterPatch.had_turn.set(m, false);
