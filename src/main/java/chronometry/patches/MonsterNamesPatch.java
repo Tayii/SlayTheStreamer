@@ -47,13 +47,15 @@ public class MonsterNamesPatch {
         	// Get the right name
             final TwitchVoter twitchVoter = TwitchPanel.getDefaultVoter().get();
 			Set<String> votedUsernames = (Set<String>)ReflectionHacks.getPrivate(twitchVoter, TwitchVoter.class, "votedUsernames");
-
+			//votedUsernames.add("Tayi_Saito");
 			if (votedUsernames.size() > 0) {
 
 				/* ¡éBetter Randomness¡é */
 				List<String> screwYouList = new ArrayList(votedUsernames);
-				Map<String, Double> weightedMap = new HashMap(); // <username, weight> pool contains who voted right before
-				double totalWeight = 0.0d;
+				//Map<String, Double> weightedMap = new HashMap(); // <username, weight> pool contains who voted right before
+				// double totalWeight = 0.0d;
+				double maxWeight = 0.0d;
+				String username = "";
 
 				for(String e: screwYouList){
 					String tarName = e;
@@ -72,28 +74,33 @@ public class MonsterNamesPatch {
 
 					if(SlayTheStreamer.votedTimes.containsKey(tarName)){
 						SlayTheStreamer.votedTimes.put(tarName, SlayTheStreamer.votedTimes.get(tarName) + 1);
-						weightedMap.put(e, Math.pow((double)(SlayTheStreamer.votedTimes.get(tarName)+15),1.05d)/Math.pow((double)(chosenTimes + 5),2.5d));
-						totalWeight = totalWeight + weightedMap.get(e);
+						//weightedMap.put(e, weight);
+						// totalWeight = totalWeight + weightedMap.get(e);
 					}
 					else{ // not voted before
 						SlayTheStreamer.votedTimes.put(tarName, 1);
-						weightedMap.put(e, Math.pow((double)(SlayTheStreamer.votedTimes.get(tarName)+15),1.05d)/Math.pow((double)(chosenTimes + 5),2.5d));
-						totalWeight = totalWeight + weightedMap.get(e);
+						//weightedMap.put(e, weight);
+						// totalWeight = totalWeight + weightedMap.get(e);
+					}
+					double weight = Math.pow((double)(SlayTheStreamer.votedTimes.get(tarName)+15),1.05d)/Math.pow((double)(chosenTimes + 5),2.5d);
+					if (weight > maxWeight) {
+						maxWeight = weight;
+						username = e;
 					}
 					SlayTheStreamer.log("Name " + tarName + ", Voted " + SlayTheStreamer.votedTimes.get(tarName) + " time(s), " +
-							"Chosed " + chosenTimes + " time(s), " + "weight is " + weightedMap.get(e));
+							"Chosed " + chosenTimes + " time(s), " + "weight is " + weight);
 				}
 
-				String username = null;
-				double randomVal = random.nextDouble() * totalWeight;
+				// String username = null;
+				// double randomVal = random.nextDouble() * totalWeight;
 
-				for(String e: weightedMap.keySet()){
-					randomVal -= weightedMap.get(e);
-					if(randomVal <= 0.0d){
-						username = e;
-						break;
-					}
-				}
+				// for(String e: weightedMap.keySet()){
+					//randomVal -= weightedMap.get(e);
+					//if(randomVal <= 0.0d){
+					//	username = e;
+					//	break;
+					//}
+				//}
 
 				String usernameOrigin = username;
 
