@@ -210,12 +210,20 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
 
     public void receiveEditStrings() {
         String path = "localization/";
-        if (Settings.language.toString().equals("RUS")) {
-            path = path.concat(Settings.language.toString().toLowerCase());
+
+        switch(Settings.language.toString()){
+            case "RUS":
+                path = path.concat(Settings.language.toString().toLowerCase());
+                break;
+            case "KOR":
+                path = path.concat(Settings.language.toString().toLowerCase());
+                break;
+            case "ENG":
+            default:
+                path = path.concat("eng");
+                break;
         }
-        else {
-            path = path.concat("eng");
-        }
+
 
         Type tokenType = new TypeToken<HashMap<String, HashMap<String, String>>>() {}.getType();
         SlayTheStreamer.localizedMonsterMoves = new HashMap<>(

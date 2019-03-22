@@ -1,0 +1,64 @@
+{
+  "AcidSlime_L": {
+    "NORMAL_TACKLE": "태클"
+  },
+  "AcidSlime_M": {
+    "NORMAL_TACKLE": "태클"
+  },
+  "AcidSlime_S": {
+    "TACKLE": "태클",
+    "DEBUFF": "핥기"
+  },
+  "Cultist": {
+    "DARK_STRIKE": "어둠의 타격",
+    "UNIQUE_1": "매 턴 힘을 {num} 씩 얻습니다"
+  },
+  "FungiBeast": {
+    "BITE": "물기"
+  },
+  "GremlinNob": {
+    "BULL_RUSH": "돌진",
+    "BELLOW": "분노",
+    "UNIQUE_1": "스킬 카드가 사용될 때마다 힘을 {num} 얻습니다"
+  },
+  "Hexaghost": {
+    "TACKLE": "화염 강타"
+  },
+  "JawWorm": {
+    "CHOMP": "먹기"
+  },
+  "Lagavulin": {
+    "STRONG_ATK": "스매시"
+  },
+  "Looter": {
+    "SMOKE_BOMB": "연막탄",
+    "ESCAPE": "탈출",
+    "UNIQUE_1": "전투에서 도망갑니다"
+  },
+  "LouseDefensive": {
+    "BITE": "물기"
+  },
+  "LouseNormal": {
+    "BITE": "물기"
+  },
+  "Sentry": {
+    "BOLT": "볼트",
+    "BEAM": "빔"
+  },
+  "SlaverBlue": {
+    "STAB": "찌르기"
+  },
+  "SlaverRed": {
+    "STAB": "찌르기",
+    "UNIQUE_1": "{num} 턴 동안 공격 카드의 사용을 막습니다"
+  },
+  "SlimeBoss": {
+    "UNIQUE_1": "강력한 으깨기를 준비합니다"
+  },
+  "SpikeSlime_L": {
+    "FLAME_TACKLE": "화염 태클"
+  },
+  "SpikeSlime_M": {
+    "FLAME_TACKLE": "화염 태클"
+  }
+}
