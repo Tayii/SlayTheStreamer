@@ -38,7 +38,7 @@ public class AttackEffect extends MoveEffect {
     public int number() {
         if (this.getNumber != null) {
             try {
-                return (int)this.getNumber.invoke(this.monster);
+                return (int)this.getNumber.invoke(null, this.monster);
             }
             catch (IllegalAccessException | InvocationTargetException exc) {
                 SlayTheStreamer.logger.info("catched error in number() AttackEffect of monster ".concat(this.monster.name));
@@ -54,7 +54,7 @@ public class AttackEffect extends MoveEffect {
     public int multiplier() {
         if (this.getMultiplier != null) {
             try {
-                this.multiplier = (int)this.getMultiplier.invoke(this.monster);
+                this.multiplier = (int)this.getMultiplier.invoke(null, this.monster);
             }
             catch (IllegalAccessException | InvocationTargetException exc) {
                 SlayTheStreamer.logger.info("catched error in multiplier() AttackEffect of monster ".concat(this.monster.name));
