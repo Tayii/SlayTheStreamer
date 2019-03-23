@@ -38,6 +38,9 @@ public class IntentData {
         this.intent_code = (byte) ReflectionHacks.getPrivateStatic(monsterClass, intentCode);
         this.intent_type = intent_type;
         this.move_name = move_name;
+        if (this.move_name == null) {
+            this.move_name = intentCode;
+        }
         this.max_cooldown = max_cooldown;
         this.effects = new ArrayList<>();
         this.phase_availability = new ArrayList<>();
