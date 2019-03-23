@@ -2,6 +2,7 @@ package chronometry.patches;
 
 import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import de.robojumper.ststwitch.TwitchVoteOption;
 import de.robojumper.ststwitch.TwitchVoter;
 
@@ -15,7 +16,7 @@ public class TwitchVoterPatch {
                     (__instance, __instance.getClass(), "isVoting");
             TwitchVoteOption[] options = __instance.getOptions();
             if (!isVoting || options == null) {
-                return;
+                SpireReturn.Return(null);
             }
         }
     }
