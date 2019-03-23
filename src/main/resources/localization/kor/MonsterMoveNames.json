@@ -9,17 +9,97 @@
     "TACKLE": "태클",
     "DEBUFF": "핥기"
   },
+  "AwakenedOne": {
+    "SLASH": "Slash",
+    "TACKLE": "Tackle"
+  },
+  "BanditBear": {
+    "MAUL": "Maul",
+    "BEAR_HUG": "Bear Hug",
+    "LUNGE": "Lunge"
+  },
+  "BanditLeader": {
+    "CROSS_SLASH": "Cross Slash",
+    "MOCK": "Mock",
+    "AGONIZING_SLASH": "Agonizing Slash"
+  },
+  "BookOfStabbing": {
+    "STAB": "Flurry of Stabs",
+    "BIG_STAB": "Big Stab"
+  },
+  "BronzeAutomaton": {
+    "FLAIL": "Flail",
+    "BOOST": "Boost"
+  },
+  "BronzeOrb": {
+    "BEAM": "Beam",
+    "SUPPORT_BEAM": "Support",
+    "STASIS": "Stasis",
+    "UNIQUE_1": "steals a random card from the deck"
+  },
+  "Byrd": {
+    "PECK": "Peck",
+    "SWOOP": "Swoop",
+    "CAW": "Caw"
+  },
+  "Centurion": {
+    "SLASH": "Slash",
+    "PROTECT": "Protect",
+    "FURY": "Fury"
+  },
+  "Champ": {
+    "HEAVY_SLASH": "Heavy Slash",
+    "UNIQUE_1": "gains {num} block every turn",
+    "GLOAT": "Gloat",
+    "TAUNT": "Taunt"
+  },
+  "Chosen": {
+    "ZAP": "Zap",
+    "DRAIN": "Drain",
+    "DEBILITATE": "Debilitate",
+    "HEX": "Hex",
+    "POKE": "Poke",
+    "UNIQUE_1": "add {num} Dazed cards to the draw pile whenever a card played is not an Attack"
+  },
   "Cultist": {
     "DARK_STRIKE": "어둠의 타격",
     "UNIQUE_1": "매 턴 힘을 {num} 씩 얻습니다"
   },
+  "Darkling": {
+    "CHOMP": "Chomp",
+    "HARDEN": "Harden",
+    "NIP": "Nip"
+  },
+  "Deca": {
+    "BEAM": "Beam",
+    "SQUARE_OF_PROTECTION": "Square of Protection",
+    "UNIQUE_1": "gains {num} block every turn"
+  },
+  "Donu": {
+    "BEAM": "Beam"
+  },
   "FungiBeast": {
     "BITE": "물기"
+  },
+  "GiantHead": {
+    "GLARE": "Glare",
+    "COUNT": "Count"
+  },
+  "GremlinLeader": {
+    "UNIQUE_1": "summon up to {num} random Gremlins",
+    "ENCOURAGE": "Encourage",
+    "STAB": "Stabs"
   },
   "GremlinNob": {
     "BULL_RUSH": "돌진",
     "BELLOW": "분노",
     "UNIQUE_1": "스킬 카드가 사용될 때마다 힘을 {num} 얻습니다"
+  },
+  "Healer": {
+    "ATTACK": "Attack",
+    "HEAL": "Heal",
+    "UNIQUE_1": "heals {num} hit points",
+    "BUFF": "Buff"
   },
   "Hexaghost": {
     "TACKLE": "화염 강타"
@@ -41,9 +121,45 @@
   "LouseNormal": {
     "BITE": "물기"
   },
+  "Maw": {
+    "ROAR": "Roar",
+    "SLAM": "Slam",
+    "DROOL": "Drool",
+    "NOMNOMNOM": "Nom-nom-nom"
+  },
+  "Mugger": {
+    "SMOKE_BOMB": "Smoke Bomb",
+    "ESCAPE": "Escape",
+    "UNIQUE_1": "escapes the battle"
+  },
+  "Nemesis": {
+    "TRI_ATTACK": "Triple Attack",
+    "SCYTHE": "Scythe",
+    "TRI_BURN": "Triple Burn"
+  },
+  "OrbWalker": {
+    "LASER": "Laser",
+    "CLAW": "Claw"
+  },
+  "Reptomancer": {
+    "SNAKE_STRIKE": "Snake Strike",
+    "SPAWN_DAGGER": "Spawn Dagger",
+    "UNIQUE_1": "summons up to {num} daggers",
+    "BIG_BITE": "Big Bite"
+  },
+  "Repulsor": {
+    "DAZE": "Daze",
+    "ATTACK": "Attack"
+  },
   "Sentry": {
     "BOLT": "볼트",
     "BEAM": "빔"
+  },
+  "ShelledParasite": {
+    "FELL": "Fell",
+    "DOUBLE_STRIKE": "Double Strike",
+    "LIFE_SUCK": "Life Suck",
+    "UNIQUE_1": "heals hit points equal to damage dealt"
   },
   "SlaverBlue": {
     "STAB": "찌르기"
@@ -55,10 +171,45 @@
   "SlimeBoss": {
     "UNIQUE_1": "강력한 으깨기를 준비합니다"
   },
+  "SnakePlant": {
+    "CHOMPY_CHOMPS": "Chomps"
+  },
+  "Snecko": {
+    "UNIQUE_1": "make all cards cost random"
+  },
+  "SphericGuardian": {
+    "BIG_ATTACK": "Big Attack",
+    "BLOCK_ATTACK": "Block Attack",
+    "FRAIL_ATTACK": "Frail Attack"
+  },
+  "Spiker": {
+    "ATTACK": "Attack",
+    "BUFF_THORNS": "Buff Thorns",
+    "UNIQUE_1": "increases returning damage to {num}"
+  },
   "SpikeSlime_L": {
     "FLAME_TACKLE": "화염 태클"
   },
   "SpikeSlime_M": {
     "FLAME_TACKLE": "화염 태클"
+  },
+  "SpireGrowth": {
+    "QUICK_TACKLE": "Quick Tackle",
+    "CONSTRICT": "Constrict",
+    "UNIQUE_1": "deals {num} damage at the end of a turn",
+    "SMASH": "Smash"
+  },
+  "TheCollector": {
+    "FIREBALL": "Fireball",
+    "BUFF": "Buff",
+    "MEGA_DEBUFF": "Mega Debuff",
+    "REVIVE": "Revive",
+    "UNIQUE_1": "resummon dead allies"
+  },
+  "TimeEater": {
+    "REVERBERATE": "Reverberate",
+    "RIPPLE": "Ripple",
+    "HEAD_SLAM": "Head Slam",
+    "UNIQUE_1": "decreases number of cards drawn by 1 for {num} turns"
   }
 }

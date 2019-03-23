@@ -81,15 +81,15 @@
     "GLARE": "Glare",
     "COUNT": "Count"
   },
-  "GremlinNob": {
-    "BULL_RUSH": "Bull Rush",
-    "BELLOW": "Enrage",
-    "UNIQUE_1": "gains {num} Strength whenever Skill card is played"
-  },
   "GremlinLeader": {
     "UNIQUE_1": "summon up to {num} random Gremlins",
     "ENCOURAGE": "Encourage",
     "STAB": "Stabs"
+  },
+  "GremlinNob": {
+    "BULL_RUSH": "Bull Rush",
+    "BELLOW": "Enrage",
+    "UNIQUE_1": "gains {num} Strength whenever Skill card is played"
   },
   "Healer": {
     "ATTACK": "Attack",
