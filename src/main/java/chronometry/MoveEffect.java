@@ -16,6 +16,9 @@ public abstract class MoveEffect {
     @Override
     public String toString() {
         String sb = SlayTheStreamer.localizedChatEffects.get(this.getClass().getSimpleName());
+        if (sb == null) {
+            sb = "[EFFECT_NOT_FOUND]";
+        }
         sb = sb.replaceAll("\\{num\\}", String.valueOf(this.number()))
                 .replaceAll("\\{effect\\}", this.effect_string);
         String mul = "";
