@@ -23,7 +23,8 @@ public class SentryPatch {
             IntentData move3 = new IntentData(
                     __instance.getClass(),
                     "BOLT",
-                    Intent.DEBUFF
+                    Intent.DEBUFF,
+                    1
             );
             move3.add_effect(new DebuffCardDiscardEffect(
                     Dazed.NAME,
