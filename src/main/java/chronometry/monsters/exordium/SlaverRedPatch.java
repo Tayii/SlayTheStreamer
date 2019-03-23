@@ -32,7 +32,7 @@ public class SlaverRedPatch {
             IntentData move2 = new IntentData(
                     __instance.getClass(),
                     "ENTANGLE",
-                    Intent.ATTACK,
+                    Intent.STRONG_DEBUFF,
                     (String)ReflectionHacks.getPrivateStatic(__instance.getClass(), "ENTANGLE_NAME"),
                     1
             );
