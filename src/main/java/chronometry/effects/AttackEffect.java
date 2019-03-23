@@ -1,17 +1,27 @@
 package chronometry.effects;
 
-import basemod.ReflectionHacks;
 import chronometry.MoveEffect;
+import chronometry.SlayTheStreamer;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class AttackEffect extends MoveEffect {
     public DamageInfo info;
     public AbstractMonster monster;
-    public String multiplierVariableName = null;
+    public Method getNumber = null;
+    public Method getMultiplier = null;
 
     public AttackEffect(DamageInfo damage) {
         this(damage, 1);
+    }
+
+    public AttackEffect(AbstractMonster monster, Method getNumber) {
+        this.monster = monster;
+        this.getNumber = getNumber;
+        this.multiplier = 1;
     }
 
     public AttackEffect(DamageInfo damage, int multiplier) {
@@ -19,22 +29,38 @@ public class AttackEffect extends MoveEffect {
         this.multiplier = multiplier;
     }
 
-    public AttackEffect(DamageInfo damage, AbstractMonster monster, String variableName) {
+    public AttackEffect(DamageInfo damage, AbstractMonster monster, Method getMultiplier) {
         this.info = damage;
         this.monster = monster;
-        this.multiplierVariableName = variableName;
+        this.getMultiplier = getMultiplier;
     }
 
     public int number() {
-        return this.info.output;
+        if (this.getNumber != null) {
+            try {
+                return (int)this.getNumber.invoke(this.monster);
+            }
+            catch (IllegalAccessException | InvocationTargetException exc) {
+                SlayTheStreamer.logger.info("catched error in number() AttackEffect of monster ".concat(this.monster.name));
+                SlayTheStreamer.logger.info(exc);
+                return 0;
+            }
+        }
+        else {
+            return this.info.output;
+        }
     }
 
     public int multiplier() {
-        if (multiplierVariableName != null) {
-            return (int) ReflectionHacks.getPrivate(this.monster, this.monster.getClass(), this.multiplierVariableName);
+        if (this.getMultiplier != null) {
+            try {
+                this.multiplier = (int)this.getMultiplier.invoke(this.monster);
+            }
+            catch (IllegalAccessException | InvocationTargetException exc) {
+                SlayTheStreamer.logger.info("catched error in multiplier() AttackEffect of monster ".concat(this.monster.name));
+                SlayTheStreamer.logger.info(exc);
+            }
         }
-        else {
-            return this.multiplier;
-        }
+        return this.multiplier;
     }
 }
