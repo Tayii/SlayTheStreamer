@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class SpikeSlimeMPatch {
     @SpirePatch(clz=SpikeSlime_M.class,
                 method=SpirePatch.CONSTRUCTOR,
-                paramtypez = {float.class, float.class})
+                paramtypez = {float.class, float.class, int.class, int.class})
     public static class InitMoves {
-        public static void Postfix(SpikeSlime_M __instance, float x, float y) {
+        public static void Postfix(SpikeSlime_M __instance, float x, float y, int poisonAmount, int newHealth) {
             ArrayList<IntentData> moves = new ArrayList<IntentData>();
 
             IntentData move1 = new IntentData(
