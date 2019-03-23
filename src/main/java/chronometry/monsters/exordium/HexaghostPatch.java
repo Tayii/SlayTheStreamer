@@ -55,7 +55,7 @@ public class HexaghostPatch {
             IntentData move4 = new IntentData(
                     __instance.getClass(),
                     "SEAR",
-                    Intent.STRONG_DEBUFF,
+                    Intent.ATTACK_DEBUFF,
                     (String) ReflectionHacks.getPrivateStatic(__instance.getClass(), "SEAR_NAME")
             );
             move4.add_phase(FIGHT);
