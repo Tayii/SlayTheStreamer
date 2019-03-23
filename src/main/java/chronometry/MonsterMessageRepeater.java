@@ -31,6 +31,7 @@ public class MonsterMessageRepeater {
 				return;
 			}
 			for (int num = 0; num < moves.size(); num++) {
+				if(num != 0) sb.append(" / ");
 				sb.append(moves.get(num).toString(num));
 			}
 

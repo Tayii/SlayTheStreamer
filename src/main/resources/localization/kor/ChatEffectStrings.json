@@ -1,0 +1,13 @@
+{
+  "TwitchNotification": "행동을 지정해주세요",
+  "AttackEffect": "피해를 {num}{mul} 줍니다.",
+  "BuffStrengthEffect": "힘을 {num} 얻습니다.",
+  "DebuffCardDiscardEffect": "버릴 카드 더미에 {effect} 을(를) {num} 장 넣습니다.",
+  "DebuffDexterityEffect": "민첩을 {num} 잃습니다.",
+  "DebuffFrailEffect": "손상을 {num} 부여합니다.",
+  "DebuffStrengthEffect": "힘을 {num} 잃습니다.",
+  "DebuffVulnerableEffect": "취약을 {num} 부여합니다.",
+  "DebuffWeakEffect": "약화를 {num} 부여합니다.",
+  "DefendEffect": "방어도를 {num} 얻습니다.",
+  "DefendOtherEffect": "무작위 아군에게 방어도를 {num} 부여합니다."
+}
