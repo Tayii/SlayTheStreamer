@@ -213,8 +213,6 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
 
         switch(Settings.language.toString()){
             case "RUS":
-                path = path.concat(Settings.language.toString().toLowerCase());
-                break;
             case "KOR":
                 path = path.concat(Settings.language.toString().toLowerCase());
                 break;
