@@ -9,17 +9,93 @@
     "TACKLE": "Плевок",
     "DEBUFF": "Облизнуть"
   },
-  "Cultist": {
-    "DARK_STRIKE": "Удар тьмы",
-    "UNIQUE_1": "получает +{num} Силы каждый ход"
+  "AwakenedOne": {
+    "SLASH": "Порез",
+    "TACKLE": "Удар"
+  },
+  "BanditBear": {
+    "MAUL": "Растерзать",
+    "BEAR_HUG": "Медвежьи объятия",
+    "LUNGE": "Выпад"
+  },
+  "BanditLeader": {
+    "CROSS_SLASH": "Косой порез",
+    "MOCK": "Насмешка",
+    "AGONIZING_SLASH": "Глубокий порез"
+  },
+  "BookOfStabbing": {
+    "STAB": " Шквал ударов",
+    "BIG_STAB": "Сильный удар"
+  },
+  "BronzeAutomaton": {
+    "FLAIL": "Порезы",
+    "BOOST": "Разгон"
+  },
+  "BronzeOrb": {
+    "BEAM": "Луч",
+    "SUPPORT_BEAM": "Поддержка",
+    "STASIS": "Стазис",
+    "UNIQUE_1": "крадет случайную карту из колоды"
+  },
+  "Byrd": {
+    "PECK": "Клевать",
+    "SWOOP": "Наскок",
+    "CAW": "Каркать"
+  },
+  "Centurion": {
+    "SLASH": "Удар",
+    "PROTECT": "Защитить",
+    "FURY": "Ярость"
+  },
+  "Champ": {
+    "HEAVY_SLASH": "Тяжелый удар",
+    "UNIQUE_1": "получает {num} блока каждый ход",
+    "GLOAT": "Злорадство",
+    "TAUNT": "Насмешка"
+  },
+  "Chosen": {
+    "ZAP": "Поджечь",
+    "DRAIN": "Обессилить",
+    "DEBILITATE": "Истощить",
+    "HEX": "Проклятие",
+    "POKE": "Проткнуть",
+    "UNIQUE_1": "добавляет {num} карт Головокружения в стопку добора за каждую сыгранную карту, кроме карт Атаки"
+  },
+  "Darkling": {
+    "CHOMP": "Чавкать",
+    "HARDEN": "Затвердеть",
+    "NIP": "Тяпнуть"
+  },
+  "Deca": {
+    "BEAM": "Луч",
+    "SQUARE_OF_PROTECTION": "Защитное поле",
+    "UNIQUE_1": "получает {num} блока каждый ход"
+  },
+  "Donu": {
+    "BEAM": "Луч"
   },
   "FungiBeast": {
     "BITE": "Укус"
+  },
+  "GiantHead": {
+    "GLARE": "Свирепый взгляд",
+    "COUNT": "Подсчет"
   },
   "GremlinNob": {
     "BULL_RUSH": "Поддеть рогами",
     "BELLOW": "Бешенство",
     "UNIQUE_1": "получает +{num} к Силе за каждую сыгранную карту Навыка"
+  },
+  "GremlinLeader": {
+    "UNIQUE_1": "вызывает до {num} случайных Гремлинов",
+    "ENCOURAGE": "Воодушевить",
+    "STAB": "Удары"
+  },
+  "Healer": {
+    "ATTACK": "Атаковать",
+    "HEAL": "Исцелить",
+    "UNIQUE_1": "исцеляет на {num} здоровья",
+    "BUFF": "Усилить"
   },
   "Hexaghost": {
     "TACKLE": "Удар огнем"
@@ -41,9 +117,45 @@
   "LouseNormal": {
     "BITE": "Укус"
   },
+  "Maw": {
+    "ROAR": "Рык",
+    "SLAM": "Удар",
+    "DROOL": "Истечь слюной",
+    "NOMNOMNOM": "Пожирать"
+  },
+  "Mugger": {
+    "SMOKE_BOMB": "Дымовая бомба",
+    "ESCAPE": "Побег",
+    "UNIQUE_1": "сбегает с боя"
+  },
+  "Nemesis": {
+    "TRI_ATTACK": "Тройная атака",
+    "SCYTHE": "Коса",
+    "TRI_BURN": "Тройной ожог"
+  },
+  "OrbWalker": {
+    "LASER": "Лазер",
+    "CLAW": "Коготь"
+  },
+  "Reptomancer": {
+    "SNAKE_STRIKE": "Удар змеи",
+    "SPAWN_DAGGER": "Вызвать кинжал",
+    "UNIQUE_1": "вызывает до {num} кинжалов",
+    "BIG_BITE": "Сильный укус"
+  },
+  "Repulsor": {
+    "DAZE": "Ошеломить",
+    "ATTACK": "Атаковать"
+  },
   "Sentry": {
     "BOLT": "Разряд",
     "BEAM": "Луч"
+  },
+  "ShelledParasite": {
+    "FELL": "Напрыгнуть",
+    "DOUBLE_STRIKE": "Двойной удар",
+    "LIFE_SUCK": "Вытянуть жизнь",
+    "UNIQUE_1": "исцеляет здоровье равное нанесенному урону"
   },
   "SlaverBlue": {
     "STAB": "Удар"
@@ -55,10 +167,45 @@
   "SlimeBoss": {
     "UNIQUE_1": "готовит мощный удар"
   },
+  "SnakePlant": {
+    "CHOMPY_CHOMPS": "Чавкать"
+  },
+  "Snecko": {
+    "UNIQUE_1": "изменяет стоимость всех карт на случайное число"
+  },
+  "SphericGuardian": {
+    "BIG_ATTACK": "Мощная атака",
+    "BLOCK_ATTACK": "Защитная атака",
+    "FRAIL_ATTACK": "Дробящая атака"
+  },
+  "Spiker": {
+    "ATTACK": "Атака",
+    "BUFF_THORNS": "Усилить шипы",
+    "UNIQUE_1": "увеличивает ответный урон на {num}"
+  },
   "SpikeSlime_L": {
     "FLAME_TACKLE": "Плевок огнем"
   },
   "SpikeSlime_M": {
     "FLAME_TACKLE": "Плевок огнем"
+  },
+  "SpireGrowth": {
+    "QUICK_TACKLE": "Быстрый удар",
+    "CONSTRICT": "Удушить",
+    "UNIQUE_1": "наносит {num} урона в конце хода",
+    "SMASH": "Сокрушить"
+  },
+  "TheCollector": {
+    "FIREBALL": "Огненный шар",
+    "BUFF": "Усиление",
+    "MEGA_DEBUFF": "Мощное ослабление",
+    "REVIVE": "Воскресить",
+    "UNIQUE_1": "воскресить мертвых союзников"
+  },
+  "TimeEater": {
+    "REVERBERATE": "Отражения",
+    "RIPPLE": "Пульсация",
+    "HEAD_SLAM": "Удар головой",
+    "UNIQUE_1": "уменьшает количество добранных карт на 1 в течение {num} ходов"
   }
 }

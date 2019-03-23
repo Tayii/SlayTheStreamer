@@ -56,7 +56,7 @@ public class MonsterMessageRepeater {
 						SlayTheStreamer.logger.info("parseMessage: monster ".concat(m.name).concat(" isDying ")
 								.concat(String.valueOf(m.isDying)).concat(" isPlayer ")
 								.concat(String.valueOf(AbstractMonsterPatch.is_player.get(m))));
-						if (m.isDying) { return; }
+						if (m.isDying) { continue; }
 						String username = user;
 						if (SlayTheStreamer.displayNames.containsKey(username)) {
 							username = SlayTheStreamer.displayNames.get(username);
