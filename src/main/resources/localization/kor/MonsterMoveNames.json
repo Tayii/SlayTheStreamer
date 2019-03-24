@@ -10,85 +10,85 @@
     "DEBUFF": "핥기"
   },
   "AwakenedOne": {
-    "SLASH": "Slash",
-    "TACKLE": "Tackle"
+    "SLASH": "긋기",
+    "TACKLE": "태클"
   },
   "BanditBear": {
-    "MAUL": "Maul",
-    "BEAR_HUG": "Bear Hug",
-    "LUNGE": "Lunge"
+    "MAUL": "할퀴기",
+    "BEAR_HUG": "곰의 포옹",
+    "LUNGE": "돌진"
   },
   "BanditLeader": {
-    "CROSS_SLASH": "Cross Slash",
-    "MOCK": "Mock",
-    "AGONIZING_SLASH": "Agonizing Slash"
+    "CROSS_SLASH": "십자 긋기",
+    "MOCK": "놀리기",
+    "AGONIZING_SLASH": "고통스러운 상처"
   },
   "BookOfStabbing": {
-    "STAB": "Flurry of Stabs",
-    "BIG_STAB": "Big Stab"
+    "STAB": "폭풍 할퀴기",
+    "BIG_STAB": "큰 찌르기"
   },
   "BronzeAutomaton": {
-    "FLAIL": "Flail",
-    "BOOST": "Boost"
+    "FLAIL": "몽둥이질",
+    "BOOST": "가속"
   },
   "BronzeOrb": {
-    "BEAM": "Beam",
-    "SUPPORT_BEAM": "Support",
-    "STASIS": "Stasis",
-    "UNIQUE_1": "steals a random card from the deck"
+    "BEAM": "빔",
+    "SUPPORT_BEAM": "지원",
+    "STASIS": "정지",
+    "UNIQUE_1": "덱에서 가장 등급이 높은 카드를 훔칩니다"
   },
   "Byrd": {
-    "PECK": "Peck",
-    "SWOOP": "Swoop",
-    "CAW": "Caw"
+    "PECK": "쪼기",
+    "SWOOP": "급강하",
+    "CAW": "칵카"
   },
   "Centurion": {
-    "SLASH": "Slash",
-    "PROTECT": "Protect",
-    "FURY": "Fury"
+    "SLASH": "긋기",
+    "PROTECT": "보호",
+    "FURY": "분노"
   },
   "Champ": {
-    "HEAVY_SLASH": "Heavy Slash",
-    "UNIQUE_1": "gains {num} block every turn",
-    "GLOAT": "Gloat",
-    "TAUNT": "Taunt"
+    "HEAVY_SLASH": "강력한 긋기",
+    "UNIQUE_1": "금속화를 {num} 얻습니다",
+    "GLOAT": "흡족",
+    "TAUNT": "도발"
   },
   "Chosen": {
-    "ZAP": "Zap",
-    "DRAIN": "Drain",
-    "DEBILITATE": "Debilitate",
-    "HEX": "Hex",
-    "POKE": "Poke",
-    "UNIQUE_1": "add {num} Dazed cards to the draw pile whenever a card played is not an Attack"
+    "ZAP": "잽",
+    "DRAIN": "흡수",
+    "DEBILITATE": "허약",
+    "HEX": "마법",
+    "POKE": "찌르기",
+    "UNIQUE_1": "공격 카드가 아닌 카드가 사용될 때마다 {num} 장의 어지러움 카드를 뽑을 카드 더미에 섞어 넣습니다."
   },
   "Cultist": {
     "DARK_STRIKE": "어둠의 타격",
     "UNIQUE_1": "매 턴 힘을 {num} 씩 얻습니다"
   },
   "Darkling": {
-    "CHOMP": "Chomp",
-    "HARDEN": "Harden",
-    "NIP": "Nip"
+    "CHOMP": "먹기",
+    "HARDEN": "경화",
+    "NIP": "꼬집기"
   },
   "Deca": {
-    "BEAM": "Beam",
-    "SQUARE_OF_PROTECTION": "Square of Protection",
-    "UNIQUE_1": "gains {num} block every turn"
+    "BEAM": "빔",
+    "SQUARE_OF_PROTECTION": "보호의 사각형",
+    "UNIQUE_1": "모든 몬스터가 금속화를 {num} 얻습니다"
   },
   "Donu": {
-    "BEAM": "Beam"
+    "BEAM": "빔"
   },
   "FungiBeast": {
     "BITE": "물기"
   },
   "GiantHead": {
-    "GLARE": "Glare",
-    "COUNT": "Count"
+    "GLARE": "노려보기",
+    "COUNT": "카운트다운"
   },
   "GremlinLeader": {
-    "UNIQUE_1": "summon up to {num} random Gremlins",
-    "ENCOURAGE": "Encourage",
-    "STAB": "Stabs"
+    "UNIQUE_1": "무작위 그렘린을 {num} 마리까지 소환합니다",
+    "ENCOURAGE": "격려",
+    "STAB": "찌르기"
   },
   "GremlinNob": {
     "BULL_RUSH": "돌진",
@@ -96,9 +96,9 @@
     "UNIQUE_1": "스킬 카드가 사용될 때마다 힘을 {num} 얻습니다"
   },
   "Healer": {
-    "ATTACK": "Attack",
-    "HEAL": "Heal",
-    "UNIQUE_1": "heals {num} hit points",
+    "ATTACK": "공격",
+    "HEAL": "회복",
+    "UNIQUE_1": "모든 몬스터의 체력을 {num} 회복시킵니다",
     "BUFF": "Buff"
   },
   "Hexaghost": {
@@ -122,44 +122,44 @@
     "BITE": "물기"
   },
   "Maw": {
-    "ROAR": "Roar",
-    "SLAM": "Slam",
-    "DROOL": "Drool",
-    "NOMNOMNOM": "Nom-nom-nom"
+    "ROAR": "울부짖기",
+    "SLAM": "내려찍기",
+    "DROOL": "침흘리기",
+    "NOMNOMNOM": "옴뇸뇸"
   },
   "Mugger": {
-    "SMOKE_BOMB": "Smoke Bomb",
-    "ESCAPE": "Escape",
-    "UNIQUE_1": "escapes the battle"
+    "SMOKE_BOMB": "연막탄",
+    "ESCAPE": "탈출",
+    "UNIQUE_1": "전투에서 탈출합니다"
   },
   "Nemesis": {
-    "TRI_ATTACK": "Triple Attack",
-    "SCYTHE": "Scythe",
-    "TRI_BURN": "Triple Burn"
+    "TRI_ATTACK": "삼연타",
+    "SCYTHE": "낫 베기",
+    "TRI_BURN": "그을리기"
   },
   "OrbWalker": {
-    "LASER": "Laser",
-    "CLAW": "Claw"
+    "LASER": "레이저",
+    "CLAW": "할퀴기"
   },
   "Reptomancer": {
-    "SNAKE_STRIKE": "Snake Strike",
-    "SPAWN_DAGGER": "Spawn Dagger",
-    "UNIQUE_1": "summons up to {num} daggers",
-    "BIG_BITE": "Big Bite"
+    "SNAKE_STRIKE": "뱀의 타격",
+    "SPAWN_DAGGER": "단검 소환",
+    "UNIQUE_1": "단검을 {num} 개체까지 소환합니다",
+    "BIG_BITE": "큰 물기"
   },
   "Repulsor": {
-    "DAZE": "Daze",
-    "ATTACK": "Attack"
+    "DAZE": "어지러움",
+    "ATTACK": "공격"
   },
   "Sentry": {
     "BOLT": "볼트",
     "BEAM": "빔"
   },
   "ShelledParasite": {
-    "FELL": "Fell",
-    "DOUBLE_STRIKE": "Double Strike",
-    "LIFE_SUCK": "Life Suck",
-    "UNIQUE_1": "heals hit points equal to damage dealt"
+    "FELL": "넘어뜨리기",
+    "DOUBLE_STRIKE": "이연타",
+    "LIFE_SUCK": "생명력 흡수",
+    "UNIQUE_1": "가한 피해만큼 체력을 회복시킵니다"
   },
   "SlaverBlue": {
     "STAB": "찌르기"
@@ -172,20 +172,20 @@
     "UNIQUE_1": "강력한 으깨기를 준비합니다"
   },
   "SnakePlant": {
-    "CHOMPY_CHOMPS": "Chomps"
+    "CHOMPY_CHOMPS": "먹기"
   },
   "Snecko": {
-    "UNIQUE_1": "make all cards cost random"
+    "UNIQUE_1": "앞으로 뽑는 카드의 비용을 0~3 중 무작위가 되게 합니다"
   },
   "SphericGuardian": {
-    "BIG_ATTACK": "Big Attack",
-    "BLOCK_ATTACK": "Block Attack",
-    "FRAIL_ATTACK": "Frail Attack"
+    "BIG_ATTACK": "큰 공격",
+    "BLOCK_ATTACK": "공격하며 막기",
+    "FRAIL_ATTACK": "공격하며 취약 부여"
   },
   "Spiker": {
-    "ATTACK": "Attack",
-    "BUFF_THORNS": "Buff Thorns",
-    "UNIQUE_1": "increases returning damage to {num}"
+    "ATTACK": "공격",
+    "BUFF_THORNS": "가시 버프",
+    "UNIQUE_1": "가시를 {num} 만큼 더 얻습니다"
   },
   "SpikeSlime_L": {
     "FLAME_TACKLE": "화염 태클"
@@ -194,22 +194,22 @@
     "FLAME_TACKLE": "화염 태클"
   },
   "SpireGrowth": {
-    "QUICK_TACKLE": "Quick Tackle",
-    "CONSTRICT": "Constrict",
-    "UNIQUE_1": "deals {num} damage at the end of a turn",
-    "SMASH": "Smash"
+    "QUICK_TACKLE": "빠른 태클",
+    "CONSTRICT": "조이기",
+    "UNIQUE_1": "앞으로 턴 종료시 피해를 {num} 만큼 줍니다",
+    "SMASH": "스매시"
   },
   "TheCollector": {
-    "FIREBALL": "Fireball",
-    "BUFF": "Buff",
-    "MEGA_DEBUFF": "Mega Debuff",
-    "REVIVE": "Revive",
-    "UNIQUE_1": "resummon dead allies"
+    "FIREBALL": "화염구",
+    "BUFF": "버프",
+    "MEGA_DEBUFF": "수집하기",
+    "REVIVE": "회생",
+    "UNIQUE_1": "모든 죽은 몬스터를 되살립니다"
   },
   "TimeEater": {
-    "REVERBERATE": "Reverberate",
-    "RIPPLE": "Ripple",
-    "HEAD_SLAM": "Head Slam",
-    "UNIQUE_1": "decreases number of cards drawn by 1 for {num} turns"
+    "REVERBERATE": "외침",
+    "RIPPLE": "파문",
+    "HEAD_SLAM": "박치기",
+    "UNIQUE_1": "{num} 턴 동안 턴 시작 시 뽑는 카드의 수를 1장 줄입니다"
   }
 }
