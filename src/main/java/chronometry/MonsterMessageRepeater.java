@@ -12,6 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.regex.Pattern;
 
 public class MonsterMessageRepeater {
 
@@ -49,12 +50,12 @@ public class MonsterMessageRepeater {
 		if (CardCrawlGame.isInARun()) {
 			if (AbstractDungeon.getCurrRoom() != null) {
 				if (AbstractDungeon.getCurrRoom().monsters != null) {
-                    Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-                    AbstractMonster m;
+					Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+					AbstractMonster m;
 					while (var1.hasNext()) {
-					    m = (AbstractMonster)var1.next();
-						SlayTheStreamer.logger.info("parseMessage: monster ".concat(m.name).concat(" isDying ")
-								.concat(String.valueOf(m.isDying)).concat(" isPlayer ")
+						m = (AbstractMonster)var1.next();
+						SlayTheStreamer.logger.info("parseMessage: monster ".concat(m.name).concat(" isDying = ")
+								.concat(String.valueOf(m.isDying)).concat(", isPlayer = ")
 								.concat(String.valueOf(AbstractMonsterPatch.is_player.get(m))));
 						if (m.isDying) { continue; }
 						String username = user;
@@ -62,8 +63,15 @@ public class MonsterMessageRepeater {
 							username = SlayTheStreamer.displayNames.get(username);
 						}
 						if (m.name.split(" ")[0].toLowerCase().equals(username.split(" ")[0].toLowerCase())) {
-							if (msg.startsWith("#") && !AbstractMonsterPatch.had_turn.get(m)) {
-								msg = msg.substring(1).replaceAll("\\s", "_").toLowerCase();
+							SlayTheStreamer.logger.info(
+									"pattern: match - " +
+											Pattern.matches(SlayTheStreamer.movePatternChecker, msg) +
+											", " +	"replaced: " +
+											msg.replaceAll(SlayTheStreamer.movePatternExtractor, "").
+													replaceAll("\\s", "_").toLowerCase() );
+							if (Pattern.matches(SlayTheStreamer.movePatternChecker, msg) && !AbstractMonsterPatch.had_turn.get(m)) {
+								msg = msg.replaceAll(SlayTheStreamer.movePatternExtractor, "").
+										replaceAll("\\s", "_").toLowerCase();
 								ArrayList<IntentData> moves = IntentData.getAvailableMoves(m);
 								for (int num = 0; num < moves.size(); num++) {
 									IntentData data = moves.get(num);
