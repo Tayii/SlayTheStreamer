@@ -33,9 +33,9 @@ import de.robojumper.ststwitch.*;
 
 import com.google.gson.Gson;
 
-    // TODO:
-    //   Active monsters could have a listener that lets the user talk on screen
-    //crashes if you try to restart the run
+// TODO:
+//   Active monsters could have a listener that lets the user talk on screen
+//crashes if you try to restart the run
 
 @SpireInitializer
 public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubscriber,
@@ -59,6 +59,11 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
     public static Map<String, Integer> votedTimes = new HashMap();  // displayname, voted times
     public static HashMap<String, HashMap<String, String>> localizedMonsterMoves;
     public static HashMap<String, String> localizedChatEffects;
+
+    public static String movePatternBase = "";
+    public static String movePatternChecker = "";
+    public static String movePatternExtractor = "";
+
 
     @SuppressWarnings("deprecation")
     public SlayTheStreamer() {
@@ -153,12 +158,12 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
         // Remove Pandora's Box
         for (Iterator<String> s = AbstractDungeon.bossRelicPool.iterator(); s.hasNext();)
         {
-          String derp = (String)s.next();
-          if (derp.equals("Pandora's Box"))
-          {
-            s.remove();
-            break;
-          }
+            String derp = (String)s.next();
+            if (derp.equals("Pandora's Box"))
+            {
+                s.remove();
+                break;
+            }
         }
 
         // Set us to trial mode so we don't get Neow bonuses
@@ -211,7 +216,7 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
     public void receiveEditStrings() {
         String path = "localization/";
 
-        switch(Settings.language.toString()){
+        switch(Settings.language.toString()){ // set path by language
             case "RUS":
             case "KOR":
                 path = path.concat(Settings.language.toString().toLowerCase());
@@ -222,6 +227,20 @@ public class SlayTheStreamer implements PostInitializeSubscriber, StartGameSubsc
                 break;
         }
 
+        movePatternBase = "(#";
+        switch(Settings.language.toString()){ // set patternMatcher by language
+            case "RUS":
+                break;
+            case "KOR":
+                movePatternBase = movePatternBase.concat("|x|ㅌ|투표");
+                break;
+            case "ENG":
+            default:
+                break;
+        }
+        movePatternBase = movePatternBase.concat(")");
+        movePatternChecker = "^" + movePatternBase + ".*$"; // pattern checker
+        movePatternExtractor = "^" + movePatternBase; // pattern remover
 
         Type tokenType = new TypeToken<HashMap<String, HashMap<String, String>>>() {}.getType();
         SlayTheStreamer.localizedMonsterMoves = new HashMap<>(
